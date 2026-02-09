@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello, World!");
+           
         }
         public static void MessagesOverview()
         {
@@ -90,6 +90,7 @@
         }
 
         // Question Y/N
+        /*
         private bool firstError = true;
         public bool QuestionYN(string question, bool errorDisplay = true)
         {
@@ -145,6 +146,6 @@
                 ClearCurrentConsoleLine();
             }
             Console.WriteLine($"{question} : {value}");
-        }
+        } */
     }
 }
