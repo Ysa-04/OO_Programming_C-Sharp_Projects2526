@@ -1,10 +1,61 @@
-﻿namespace Library
+﻿using System.ComponentModel.Design;
+
+namespace Library
 {
     public class Program
     {
         static void Main(string[] args)
         {
            
+        }
+        public static void Menu()
+        {
+            bool go = true; 
+            while (go)
+            {
+                Thread.Sleep(1000);
+                Console.Clear();
+                Library.Program.ShowLogo();
+                string title = "METHOD OVERVIEW";
+                ConsoleMethods.CharByChar(title);
+                Console.WriteLine();
+                string border = "*-*-*-*-*-*-*-*-*-*-*-*-*";
+                ConsoleMethods.CharByChar(border);
+                Console.WriteLine("\n");
+                Console.WriteLine("\t   0- EXIT");
+                Thread.Sleep(100);
+                Console.WriteLine("\t   1- MESSAGES OVERVIEW");
+                Thread.Sleep(100);
+                Console.WriteLine("\t   2- CONSOLE METHODS OVERVIEW");
+                Thread.Sleep(100);
+                Console.WriteLine("\t   3- INPUT METHODS OVERVIEW");
+                Console.WriteLine();
+                string message = "Make your choice: ";
+                ConsoleMethods.CharByChar(message);
+                string input = Console.ReadLine();
+                int choice = Library.InputMethods.IntCheck(input);
+
+                switch (choice)
+                {
+                    case 0:
+                        ConsoleMethods.ExitProgram();
+                        Console.WriteLine();
+                        ConsoleMethods.BackToMainMenu();
+                        go = false;
+                        break;
+                    case 1:
+                        MessagesOverview();
+                        break;
+                    case 2:
+                        ConsoleMethodsOverview();
+                        break;
+                    default:
+                        Messages.ErrorMessage("Invalid input value");
+                        Console.ReadLine();
+                        break;
+                }
+            }
+
         }
         public static void MessagesOverview()
         {
@@ -15,6 +66,16 @@
             Messages.SuccesMessage("| Tells the user that something went well\n"); //for example: “Data saved successfully.”
             Messages.Warning("| Gives a warning about something that might be a problem\n"); //for example: “Some data may be lost.”
             Messages.ErrorMessage("| Shows an error message whenever something goes wrong"); //for example: “Invalid input, please try again.”
+            ConsoleMethods.Continue();
+        }
+        public static void ConsoleMethodsOverview()
+        {
+            Console.Clear();
+            ShowLogo();
+            Console.WriteLine();
+            Messages.InfoMessage("ExitProgram | Method to let user quit the program\n");
+            Messages.InfoMessage("BackToMainMenu | Method to let user go back to main menu\n");
+            Messages.InfoMessage("Continue | Method to continue the program whenever user pushes <ENTER>\n");
             ConsoleMethods.Continue();
         }
         public static void ShowLogo()

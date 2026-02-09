@@ -20,7 +20,7 @@
                 Console.WriteLine("\t   MENU");
                 Console.WriteLine("\t   *-*-*-*-*-*-*-*-*");
                 Console.WriteLine("\t   0- EXIT");
-                Console.WriteLine("\t   1- LIBRARY MESSAGES OVERVIEW");
+                Console.WriteLine("\t   1- LIBRARY METHODS OVERVIEW");
                 Console.WriteLine("\t   2- SCHOOLADMIN");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -36,13 +36,13 @@
                         go = false;
                         break;
                     case 1:
-                        Library.Program.MessagesOverview();
+                        Library.Program.Menu();
                         break;
                     case 2:
                         SchoolAdmin.Program.Menu();
                         break;
                     default:
-                        Library.Messages.ErrorMessage("Wrong input value");
+                        Library.Messages.ErrorMessage("Invalid input value");
                         Console.ReadLine();
                         break;
                 }

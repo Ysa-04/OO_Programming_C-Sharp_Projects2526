@@ -53,5 +53,16 @@ namespace Library
             Console.ReadLine();
             Console.ResetColor();
         }
+
+        public static void CharByChar(string line)
+        {
+            int length = line.Length;
+            Console.Write("\t   ");
+            for (int i = 0; i < length; i++)
+            {
+                Thread.Sleep(50);
+                Console.Write(line.Substring(i, 1));
+            }
+        }
     }
 }
