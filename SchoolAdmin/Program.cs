@@ -21,7 +21,8 @@
                 Console.WriteLine("\t   2- Demonstreer cursussen uitvoeren");
                 Console.WriteLine();
                 Console.Write("\t   Maak je keuze: ");
-                int choice = Convert.ToInt32(Console.ReadLine());
+                string input = Console.ReadLine();
+                int choice = Library.InputCheck.IntCheck(input);
 
                 switch (choice)
                 {

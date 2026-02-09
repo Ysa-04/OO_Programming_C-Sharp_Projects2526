@@ -25,7 +25,8 @@
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write("\t   Make your choice: ");
-                int choice = Convert.ToInt32(Console.ReadLine());
+                string input = Console.ReadLine();
+                int choice = Library.InputCheck.IntCheck(input);
                 Console.ResetColor();
 
                 switch (choice)
