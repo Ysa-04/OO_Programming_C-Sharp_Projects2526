@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class InputCheck
+    public class InputMethods
     {
         public static int IntCheck(string input)
         {

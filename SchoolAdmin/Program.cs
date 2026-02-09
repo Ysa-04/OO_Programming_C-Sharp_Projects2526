@@ -22,7 +22,7 @@
                 Console.WriteLine();
                 Console.Write("\t   Maak je keuze: ");
                 string input = Console.ReadLine();
-                int choice = Library.InputCheck.IntCheck(input);
+                int choice = Library.InputMethods.IntCheck(input);
 
                 switch (choice)
                 {
