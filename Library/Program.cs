@@ -11,10 +11,10 @@
             Console.Clear();
             ShowLogo();
             Console.WriteLine();
-            Messages.InfoMessage("Shows a neutral information message, for example: “Loading data…” or “Process started.”");
-            Messages.SuccesMessage("Tells the user that something went well, for example: “Data saved successfully.”");
-            Messages.Warning("Gives a warning about something that might be a problem, for example: “Some data may be lost.”");
-            Messages.ErrorMessage("Shows an error message whenever something goes wrong, for example: “Invalid input, please try again.”");
+            Messages.InfoMessage("| Shows a neutral information message\n"); //for example: “Loading data…” or “Process started.”
+            Messages.SuccesMessage("| Tells the user that something went well\n"); //for example: “Data saved successfully.”
+            Messages.Warning("| Gives a warning about something that might be a problem\n"); //for example: “Some data may be lost.”
+            Messages.ErrorMessage("| Shows an error message whenever something goes wrong"); //for example: “Invalid input, please try again.”
             Continue();
         }
         public static void ShowLogo()

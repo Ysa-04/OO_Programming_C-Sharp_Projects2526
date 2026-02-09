@@ -12,29 +12,33 @@ namespace Library
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine();
-            Console.WriteLine($"\t   ERROR | {error.ToUpper()}");
+            Console.Write($"\t   [ERROR]\t");
             Console.ResetColor();
+            Console.Write(error);
         }
         public static void SuccesMessage(string succes)
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine();
-            Console.WriteLine($"\t   SUCCESS | {succes.ToUpper()}");
+            Console.Write($"\t   [SUCCESS]\t");
             Console.ResetColor();
+            Console.Write(succes);        
         }
         public static void InfoMessage(string info)
         {
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine();
-            Console.WriteLine($"\t   INFO | {info}");
+            Console.Write($"\t   [INFO]\t");
             Console.ResetColor();
+            Console.Write(info);
         }
         public static void Warning(string warning)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine();
-            Console.WriteLine($"\t   WARNING | {warning}");
+            Console.Write($"\t   [WARNING]\t");
             Console.ResetColor();
+            Console.Write(warning);
         }
         
 
