@@ -26,9 +26,9 @@
                 switch (choice)
                 {
                     case 0:
-                        Library.Program.ExitProgram();
+                        Library.ConsoleMethods.ExitProgram();
                         Console.WriteLine();
-                        Library.Program.BackToMainMenu();
+                        Library.ConsoleMethods.BackToMainMenu();
                         go = false;
                         break;
                     case 1:
@@ -70,7 +70,7 @@
             mieke.RegisterCourseResult("Databanken", 14);
             mieke.ShowOverview();
 
-            Library.Program.Continue();
+            Library.ConsoleMethods.Continue();
 
             //studentList.Add(said);
             //studentList.Add(mieke);
@@ -122,7 +122,7 @@
             webtechnologie.ShowOverview();
             databanken.ShowOverview();
 
-            Library.Program.Continue();
+            Library.ConsoleMethods.Continue();
         }
     }
 }

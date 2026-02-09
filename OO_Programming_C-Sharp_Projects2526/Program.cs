@@ -31,7 +31,7 @@
                 switch (choice)
                 {
                     case 0:
-                        Library.Program.ExitProgram();                       
+                        Library.ConsoleMethods.ExitProgram();                       
                         go = false;
                         break;
                     case 1:

@@ -15,7 +15,7 @@
             Messages.SuccesMessage("| Tells the user that something went well\n"); //for example: “Data saved successfully.”
             Messages.Warning("| Gives a warning about something that might be a problem\n"); //for example: “Some data may be lost.”
             Messages.ErrorMessage("| Shows an error message whenever something goes wrong"); //for example: “Invalid input, please try again.”
-            Continue();
+            ConsoleMethods.Continue();
         }
         public static void ShowLogo()
         {
@@ -34,52 +34,6 @@
             Console.ResetColor();
         }
 
-        public static void ExitProgram()
-        {
-            Console.Clear();
-            string quit = "Quitting program";
-            int stringlength = quit.Length;
-            for (int i = 0; i < 3; i++)
-            {
-                Thread.Sleep(100);
-                Console.Write(".");
-            }
-            Thread.Sleep(100);
-            for (int i = 0; i < stringlength; i++)
-            {
-                Thread.Sleep(100);
-                Console.Write(quit.Substring(i,1));
-            }
-            Thread.Sleep(1000);
-        }
-
-        public static void BackToMainMenu()
-        {
-            string quit = "Going back to main menu";
-            int stringlength = quit.Length;
-            for (int i = 0; i < 3; i++)
-            {
-                Thread.Sleep(100);
-                Console.Write(".");
-            }
-            Thread.Sleep(100);
-            for (int i = 0; i < stringlength; i++)
-            {
-                Thread.Sleep(100);
-                Console.Write(quit.Substring(i,1));
-            }
-            Thread.Sleep(1000);
-        }
-        public static void Continue()
-        {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\n\n");
-            Console.WriteLine($"\t   Press <ENTER> to continue...");
-            Console.ReadLine();
-            Console.ResetColor();
-        }
-
-        
         public static void ClearCurrentConsoleLine()
         {
             Console.SetCursorPosition(0, Console.CursorTop - 1);
