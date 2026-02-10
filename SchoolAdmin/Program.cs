@@ -1,4 +1,6 @@
-﻿namespace SchoolAdmin
+﻿using Library;
+
+namespace SchoolAdmin
 {
     public class Program
     {
@@ -14,13 +16,21 @@
                 Thread.Sleep(1000);
                 Console.Clear();
                 Library.Program.ShowLogo();
-                Console.WriteLine("\t   KEUZEMENU");
-                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*");
-                Console.WriteLine("\t   0- EXIT");
-                Console.WriteLine("\t   1- Demonstreer studenten uitvoeren");
-                Console.WriteLine("\t   2- Demonstreer cursussen uitvoeren");
+                string title = "KEUZEMENU";
+                string border = "*-*-*-*-*";
+                ConsoleMethods.CharByChar(title);
                 Console.WriteLine();
-                Console.Write("\t   Maak je keuze: ");
+                ConsoleMethods.CharByChar(border);
+                Console.WriteLine("\n");
+                Console.WriteLine("\t   0- EXIT");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   1- Demonstreer studenten uitvoeren");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   2- Demonstreer cursussen uitvoeren");
+                Thread.Sleep(50);
+                Console.WriteLine();
+                string message = "Maak je keuze: ";
+                ConsoleMethods.CharByChar(message);
                 string input = Console.ReadLine();
                 int choice = Library.InputMethods.IntCheck(input);
 
