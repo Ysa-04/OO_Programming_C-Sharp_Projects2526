@@ -16,6 +16,7 @@ namespace Library
                 Thread.Sleep(1000);
                 Console.Clear();
                 Library.Program.ShowLogo();
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 string title = "METHOD OVERVIEW";
                 ConsoleMethods.CharByChar(title);
                 Console.WriteLine();

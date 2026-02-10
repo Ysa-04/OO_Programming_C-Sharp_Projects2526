@@ -69,7 +69,9 @@ namespace Library
             int percentage = 0;
             string loading = "\t   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒";
             string finished = "\t   ████████████████████";
-            Console.WriteLine($"\t   Loading Data...\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"\t   Loading Data...");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             for (int i = 0; i < 21; i++)
             {
                 Console.WriteLine(
@@ -98,9 +100,12 @@ namespace Library
                     percentage += 5;
                 }
             }
+            Console.ResetColor();
             ClearCurrentConsoleLine();
             Messages.SuccesMessage("Loading Complete");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine($"\n\n{finished} 100%\n");
+            Console.ResetColor();
             Continue();
             for (int i = 0; i < 5; i++)
             {
