@@ -67,9 +67,9 @@ namespace Library
         public static void LoadScreen()
         {
             int percentage = 0;
-            string loading = "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒";
-            string finished = "████████████████████";
-            Console.WriteLine($"Loading Excercise");
+            string loading = "\t   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒";
+            string finished = "\t   ████████████████████";
+            Console.WriteLine($"\t   Loading Data...\n");
             for (int i = 0; i < 21; i++)
             {
                 Console.WriteLine(
@@ -100,9 +100,8 @@ namespace Library
             }
             ClearCurrentConsoleLine();
             Messages.SuccesMessage("Loading Complete");
-            Console.WriteLine($"{finished} 100%\n");
-            Console.WriteLine("Press ENTER to continue");
-            Console.ReadLine();
+            Console.WriteLine($"\n\n{finished} 100%\n");
+            Continue();
             for (int i = 0; i < 5; i++)
             {
                 ClearCurrentConsoleLine();

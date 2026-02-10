@@ -12,7 +12,7 @@ namespace Library
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine();
-            Console.Write($"\t   [ERROR]\t");
+            Console.Write($"\t   [ERROR] ");
             Console.ResetColor();
             Console.Write(error);
         }
@@ -20,7 +20,7 @@ namespace Library
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine();
-            Console.Write($"\t   [SUCCESS]\t");
+            Console.Write($"\t   [SUCCESS] ");
             Console.ResetColor();
             Console.Write(succes);        
         }
@@ -28,7 +28,7 @@ namespace Library
         {
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine();
-            Console.Write($"\t   [INFO]\t");
+            Console.Write($"\t   [INFO] ");
             Console.ResetColor();
             Console.Write(info);
         }
@@ -36,7 +36,7 @@ namespace Library
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine();
-            Console.Write($"\t   [WARNING]\t");
+            Console.Write($"\t   [WARNING] ");
             Console.ResetColor();
             Console.Write(warning);
         }

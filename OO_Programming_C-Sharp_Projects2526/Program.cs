@@ -1,4 +1,6 @@
-﻿namespace OO_Programming_C_Sharp_Projects2526
+﻿using Library;
+
+namespace OO_Programming_C_Sharp_Projects2526
 {
     internal class Program
     {
@@ -36,9 +38,13 @@
                         go = false;
                         break;
                     case 1:
+                        Console.Clear();
+                        ConsoleMethods.LoadScreen();
                         Library.Program.Menu();
                         break;
                     case 2:
+                        Console.Clear();
+                        ConsoleMethods.LoadScreen();
                         SchoolAdmin.Program.Menu();
                         break;
                     default:
