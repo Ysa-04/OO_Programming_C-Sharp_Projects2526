@@ -15,17 +15,16 @@ namespace Library
             int stringlength = quit.Length;
             for (int i = 0; i < 3; i++)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(75);
                 Console.Write(".");
             }
-            Thread.Sleep(100);
+            Thread.Sleep(75);
             for (int i = 0; i < stringlength; i++)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(75);
                 Console.Write(quit.Substring(i, 1));
             }
             Thread.Sleep(1000);
-            Console.Clear();
         }
 
         public static void BackToMainMenu()
@@ -34,13 +33,13 @@ namespace Library
             int stringlength = quit.Length;
             for (int i = 0; i < 3; i++)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(75);
                 Console.Write(".");
             }
-            Thread.Sleep(100);
+            Thread.Sleep(75);
             for (int i = 0; i < stringlength; i++)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(75);
                 Console.Write(quit.Substring(i, 1));
             }
             Thread.Sleep(1000);
