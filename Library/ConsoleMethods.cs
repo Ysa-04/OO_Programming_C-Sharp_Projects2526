@@ -106,11 +106,6 @@ namespace Library
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine($"\n\n{finished} 100%\n");
             Console.ResetColor();
-            Continue();
-            for (int i = 0; i < 5; i++)
-            {
-                ClearCurrentConsoleLine();
-            }
         }
 
         public static void ClearCurrentConsoleLine()

@@ -16,13 +16,19 @@ namespace Library
                 Thread.Sleep(1000);
                 Console.Clear();
                 Library.Program.ShowLogo();
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
-                string title = "METHOD OVERVIEW";
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                Console.WriteLine("\t   |  Library Methods Overview |");
+                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                Console.WriteLine();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                string title = "MENU";
+                string border = "*-*-*-*-*-*-*-*-*";
                 ConsoleMethods.CharByChar(title);
                 Console.WriteLine();
-                string border = "*-*-*-*-*-*-*-*";
                 ConsoleMethods.CharByChar(border);
-                Console.WriteLine("\n");
+                Console.WriteLine();
                 Console.WriteLine("\t   0- EXIT");
                 Thread.Sleep(50);
                 Console.WriteLine("\t   1- MESSAGES OVERVIEW");
@@ -31,8 +37,10 @@ namespace Library
                 Thread.Sleep(50);
                 Console.WriteLine("\t   3- INPUT METHODS OVERVIEW");
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Make your choice: ";
                 ConsoleMethods.CharByChar(message);
+                Console.ResetColor();
                 string input = Console.ReadLine();
                 int choice = Library.InputMethods.IntCheck(input);
 
