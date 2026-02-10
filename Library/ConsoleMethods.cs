@@ -59,9 +59,63 @@ namespace Library
             Console.Write("\t   ");
             for (int i = 0; i < length; i++)
             {
-                Thread.Sleep(50);
+                Thread.Sleep(25);
                 Console.Write(line.Substring(i, 1));
             }
+        }
+
+        public static void LoadScreen()
+        {
+            int percentage = 0;
+            string loading = "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒";
+            string finished = "████████████████████";
+            Console.WriteLine($"Loading Excercise");
+            for (int i = 0; i < 21; i++)
+            {
+                Console.WriteLine(
+                    $"{finished.Substring(0, i) + loading.Substring(i, 20 - i)} {percentage}%"
+                );
+                Thread.Sleep(15 * (i + 1));
+                if (i == 20)
+                {
+                    Thread.Sleep(892);
+                }
+                ClearCurrentConsoleLine();
+                if (i % 7 == 0)
+                {
+                    percentage += 7;
+                }
+                else if (i % 3 == 0)
+                {
+                    percentage += 4;
+                }
+                else if (i == 19)
+                {
+                    percentage += 4;
+                }
+                else
+                {
+                    percentage += 5;
+                }
+            }
+            ClearCurrentConsoleLine();
+            Messages.SuccesMessage("Loading Complete");
+            Console.WriteLine($"{finished} 100%\n");
+            Console.WriteLine("Press ENTER to continue");
+            Console.ReadLine();
+            for (int i = 0; i < 5; i++)
+            {
+                ClearCurrentConsoleLine();
+            }
+        }
+
+        public static void ClearCurrentConsoleLine()
+        {
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
         }
     }
 }
