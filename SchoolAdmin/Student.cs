@@ -27,6 +27,14 @@ namespace SchoolAdmin
             }
         }
 
+        public Student(string name, DateTime birthDate)
+        {
+            Name = name;
+            Birthdate = birthDate;
+            StudentNumber = StudentCounter;
+            StudentCounter++;
+        }
+
         public string GenerateNamecard()
         {
             return $"{this.Name} (STUDENT)";

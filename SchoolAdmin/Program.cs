@@ -73,21 +73,13 @@ namespace SchoolAdmin
         public static void DemoStudents()
         {
             // List<Student> studentList = new List<Student>();
-            Student said = new Student();
-            said.Name = "Said Aziz";
-            said.Birthdate = new DateTime(2000, 6, 1);
-            said.StudentNumber = Student.StudentCounter;
-            Student.StudentCounter++;
+            Student said = new Student("Said Aziz", new DateTime(2000,6,1));
             said.RegisterCourseResult("Communicatie", 12);
             said.RegisterCourseResult("Programmeren", 15);
             said.RegisterCourseResult("Webtechnologie", 13);
             said.ShowOverview();
 
-            Student mieke = new Student();
-            mieke.Name = "Mieke Vermeulen";
-            mieke.Birthdate = new DateTime(1998, 1, 1);
-            mieke.StudentNumber = Student.StudentCounter;
-            Student.StudentCounter++;
+            Student mieke = new Student("Mieke Vermeulen", new DateTime(1998,1,1));
             mieke.RegisterCourseResult("Communicatie", 13);
             mieke.RegisterCourseResult("Programmeren", 16);
             mieke.RegisterCourseResult("Databanken", 14);
@@ -106,20 +98,12 @@ namespace SchoolAdmin
         }
         public static void DemoCourses()
         {
-            Student said = new Student();
-            said.Name = "Said Aziz";
-            said.Birthdate = new DateTime(2000, 6, 1);
-            said.StudentNumber = Student.StudentCounter;
-            Student.StudentCounter++;
+            Student said = new Student("Said Aziz", new DateTime(2000, 6, 1));
             said.RegisterCourseResult("Communicatie", 12);
             said.RegisterCourseResult("Programmeren", 15);
             said.RegisterCourseResult("Webtechnologie", 13);
 
-            Student mieke = new Student();
-            mieke.Name = "Mieke Vermeulen";
-            mieke.Birthdate = new DateTime(1998, 1, 1);
-            mieke.StudentNumber = Student.StudentCounter;
-            Student.StudentCounter++;
+            Student mieke = new Student("Mieke Vermeulen", new DateTime(1998, 1, 1));
             mieke.RegisterCourseResult("Communicatie", 13);
             mieke.RegisterCourseResult("Programmeren", 16);
             mieke.RegisterCourseResult("Databanken", 14);
