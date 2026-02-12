@@ -60,7 +60,6 @@ namespace Library
                         break;
                     default:
                         Messages.ErrorMessage("Invalid input value");
-                        Console.ReadLine();
                         break;
                 }
             }

@@ -16,8 +16,16 @@ namespace SchoolAdmin
                 Thread.Sleep(1000);
                 Console.Clear();
                 Library.Program.ShowLogo();
-                string title = "KEUZEMENU";
-                string border = "*-*-*-*-*";
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*");
+                Console.WriteLine("\t   | School Admin Project  |");
+                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*");
+                Console.WriteLine();
+                Console.ResetColor();
+
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                string title = "MENU";
+                string border = "*-*-*-*-*-*-*-*-*";
                 ConsoleMethods.CharByChar(title);
                 Console.WriteLine();
                 ConsoleMethods.CharByChar(border);
@@ -29,10 +37,12 @@ namespace SchoolAdmin
                 Console.WriteLine("\t   2- Demonstreer cursussen uitvoeren");
                 Thread.Sleep(50);
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
                 ConsoleMethods.CharByChar(message);
                 string input = Console.ReadLine();
                 int choice = Library.InputMethods.IntCheck(input);
+                Console.ResetColor();
 
                 switch (choice)
                 {
@@ -51,7 +61,7 @@ namespace SchoolAdmin
                         DemoCourses();
                         break;
                     default:
-                        Library.Messages.ErrorMessage("Wrong input value");
+                        Library.Messages.ErrorMessage("Invalid input value");
                         break;
                 }
             }

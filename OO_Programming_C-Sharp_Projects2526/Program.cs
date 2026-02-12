@@ -57,7 +57,6 @@ namespace OO_Programming_C_Sharp_Projects2526
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
-                        Console.ReadLine();
                         break;
                 }
             }
