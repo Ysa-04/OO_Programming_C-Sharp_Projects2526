@@ -8,7 +8,7 @@ namespace Library
 {
     public class InputMethods
     {
-        public static int IntCheck(string input)
+        /*public static int IntCheck(string input)
         {
             int choice;
 
@@ -22,6 +22,6 @@ namespace Library
                 Console.Write("\n\n\t   ");
                 input = Console.ReadLine();
             }
-        }
+        }*/
     }
 }

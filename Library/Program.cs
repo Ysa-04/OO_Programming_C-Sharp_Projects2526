@@ -40,9 +40,9 @@ namespace Library
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Make your choice: ";
                 ConsoleMethods.CharByChar(message);
+                int choice = Convert.ToInt32(Console.ReadLine());
                 Console.ResetColor();
-                string input = Console.ReadLine();
-                int choice = Library.InputMethods.IntCheck(input);
+                
 
                 switch (choice)
                 {

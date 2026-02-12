@@ -40,8 +40,7 @@ namespace SchoolAdmin
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
                 ConsoleMethods.CharByChar(message);
-                string input = Console.ReadLine();
-                int choice = Library.InputMethods.IntCheck(input);
+                int choice = Convert.ToInt32(Console.ReadLine());
                 Console.ResetColor();
 
                 switch (choice)
@@ -62,6 +61,9 @@ namespace SchoolAdmin
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
+                        Thread.Sleep(500);
+                        Library.Messages.InfoMessage("Press <ENTER> to reload menu");
+                        Console.ReadLine();
                         break;
                 }
             }
