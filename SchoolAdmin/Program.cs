@@ -21,7 +21,7 @@ namespace SchoolAdmin
                 ConsoleMethods.CharByChar(title);
                 Console.WriteLine();
                 ConsoleMethods.CharByChar(border);
-                Console.WriteLine("\n");
+                Console.WriteLine();
                 Console.WriteLine("\t   0- EXIT");
                 Thread.Sleep(50);
                 Console.WriteLine("\t   1- Demonstreer studenten uitvoeren");

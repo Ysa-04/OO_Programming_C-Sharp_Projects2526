@@ -19,14 +19,22 @@ namespace OO_Programming_C_Sharp_Projects2526
                 Console.ResetColor();
 
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("\t   MENU");
-                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*");
+                string title = "MENU";
+                string border = "*-*-*-*-*-*-*-*-*";
+                ConsoleMethods.CharByChar(title);
+                Console.WriteLine();
+                ConsoleMethods.CharByChar(border);
+                Thread.Sleep(50);
+                Console.WriteLine();
                 Console.WriteLine("\t   0- EXIT");
+                Thread.Sleep(50);
                 Console.WriteLine("\t   1- LIBRARY METHODS OVERVIEW");
+                Thread.Sleep(50);
                 Console.WriteLine("\t   2- SCHOOLADMIN");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write("\t   Make your choice: ");
+                string message = "Make your choice: ";
+                Library.ConsoleMethods.CharByChar(message);
                 string input = Console.ReadLine();
                 int choice = Library.InputMethods.IntCheck(input);
                 Console.ResetColor();
