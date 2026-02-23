@@ -132,8 +132,21 @@ namespace SchoolAdmin
 
         public static void ReadTextFormatStudent()
         {
+            
             Console.WriteLine("Geef de tekstvoorstelling van 1 student in csv-formaat:");
             
+            string input = Console.ReadLine();
+            string[] lines = new string[input.Length];
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                Student s = input[i];
+                lines[i] = $"{s.Name}";
+            }
+
+
+
+
 
             Library.ConsoleMethods.Continue();
         }
