@@ -29,9 +29,9 @@ namespace SchoolAdmin
 
         public Student(string name, DateTime birthDate)
         {
-            Name = name;
-            Birthdate = birthDate;
-            StudentNumber = StudentCounter;
+            this.Name = name;
+            this.Birthdate = birthDate;
+            this.StudentNumber = StudentCounter;
             StudentCounter++;
         }
 

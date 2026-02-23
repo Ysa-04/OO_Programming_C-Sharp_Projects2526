@@ -73,13 +73,13 @@ namespace SchoolAdmin
         public static void DemoStudents()
         {
             // List<Student> studentList = new List<Student>();
-            Student said = new Student("Said Aziz", new DateTime(2000,6,1));
+            Student said = new Student("Said Aziz", new DateTime(2000, 6, 1));
             said.RegisterCourseResult("Communicatie", 12);
             said.RegisterCourseResult("Programmeren", 15);
             said.RegisterCourseResult("Webtechnologie", 13);
             said.ShowOverview();
 
-            Student mieke = new Student("Mieke Vermeulen", new DateTime(1998,1,1));
+            Student mieke = new Student("Mieke Vermeulen", new DateTime(1998, 1, 1));
             mieke.RegisterCourseResult("Communicatie", 13);
             mieke.RegisterCourseResult("Programmeren", 16);
             mieke.RegisterCourseResult("Databanken", 14);
@@ -108,19 +108,15 @@ namespace SchoolAdmin
             mieke.RegisterCourseResult("Programmeren", 16);
             mieke.RegisterCourseResult("Databanken", 14);
 
-            Course communicatie = new Course();
-            communicatie.Title = "Communicatie";
-            Course programmeren = new Course();
-            programmeren.Title = "Programmeren";
-            Course webtechnologie = new Course();
-            webtechnologie.Title = "Webtechnologie";
-            Course databanken = new Course();
-            databanken.Title = "Databanken";
+            List<Student> saidAndMieke = new List<Student>();
+            saidAndMieke.Add(said);
+            saidAndMieke.Add(mieke);
 
-            communicatie.Students.Add(said);
-            communicatie.Students.Add(mieke);
-            programmeren.Students.Add(said);
-            programmeren.Students.Add(mieke);
+            Course communicatie = new Course("Communicatie", saidAndMieke, 6);
+            Course programmeren = new Course("Programmeren", saidAndMieke);
+            Course webtechnologie = new Course("Webtechnologie");
+            Course databanken = new Course("Databanken");
+
             webtechnologie.Students.Add(said);
             databanken.Students.Add(mieke);
 

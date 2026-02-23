@@ -18,16 +18,32 @@ namespace SchoolAdmin
             private set { creditPoints = value; }
         }
         private int id;
-
         public int Id
         {
             get { return id; }
         }
         private static int maxId = 1;
         public static List<Course> AllCourses = new List<Course>();
+
+        public Course(string title, List<Student> students, byte creditPoints)
+        {
+            this.Title = title;
+            this.Students = students;
+            this.id = Course.maxId;
+            Course.maxId++;
+            this.CreditPoints = creditPoints;
+            Course.AllCourses.Add(this);
+        }
+        public Course(string title, List<Student> students) : this(title, students, 3)
+        {
+        }
+        public Course(string title) : this(title, new List<Student>())
+        {
+        }
+
         public void ShowOverview()
         {
-            Console.WriteLine($"{this.Title}");
+            Console.WriteLine($"{this.Title} ({this.Id}) - ({this.CreditPoints}sp");
             Console.WriteLine("*-*-*-*-*-*-*-*");
             foreach (Student student in Students)
             {
