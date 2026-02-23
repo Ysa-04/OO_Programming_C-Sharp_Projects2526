@@ -32,7 +32,7 @@ namespace SchoolAdmin
             this.Name = name;
             this.Birthdate = birthDate;
             this.StudentNumber = StudentCounter;
-            StudentCounter++;
+            Student.StudentCounter++;
         }
 
         public string GenerateNamecard()
