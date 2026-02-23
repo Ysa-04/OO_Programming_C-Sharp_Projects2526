@@ -58,10 +58,9 @@ namespace SchoolAdmin
             }
             else
             {
-                CourseResult newCourseresult = new CourseResult();
-                newCourseresult.Name = course;
-                newCourseresult.Result = result;
+                CourseResult newCourseresult = new CourseResult(course, result);
                 courseResults.Add(newCourseresult);
+             
             }
         }
         public double Average()

@@ -15,10 +15,6 @@ namespace SchoolAdmin
             {
                 return this.name;
             }
-            set
-            {
-                name = value;
-            }
         }
         private byte result;
         public byte Result
@@ -34,6 +30,12 @@ namespace SchoolAdmin
                     result = value;
                 }
             }
+        }
+
+        public CourseResult(string name, byte result)
+        {
+            this.name = name;
+            this.Result = result;
         }
     }
 }
