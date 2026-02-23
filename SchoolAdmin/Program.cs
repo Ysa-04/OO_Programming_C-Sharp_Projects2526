@@ -1,4 +1,5 @@
-﻿using Library;
+﻿using System.Runtime.CompilerServices;
+using Library;
 
 namespace SchoolAdmin
 {
@@ -60,6 +61,10 @@ namespace SchoolAdmin
                     case 2:
                         Console.Clear();
                         DemoCourses();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        ReadTextFormatStudent();
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
@@ -132,22 +137,35 @@ namespace SchoolAdmin
 
         public static void ReadTextFormatStudent()
         {
-            
             Console.WriteLine("Geef de tekstvoorstelling van 1 student in csv-formaat:");
             
             string input = Console.ReadLine();
-            string[] lines = new string[input.Length];
+            // Bart Van Steen;04;03;1998;Boekhouden;14;Macro-economie;8;Frans, deel 2;18
+            File.WriteAllText("students.csv", input);
 
-            for (int i = 0; i < lines.Length; i++)
+            string[] info = input.Split(';');
+            string name = info[0];
+            DateTime birthDate = new DateTime(
+                Convert.ToInt32(info[3]),
+                Convert.ToInt32(info[2]),
+                Convert.ToInt32(info[1])
+            );
+            //string course = info[4];
+            //byte result = Convert.ToByte(info[5]);
+
+            Student newStudent = new Student(name, birthDate);
+            if (info.Length > 4)
             {
-                Student s = input[i];
-                lines[i] = $"{s.Name}";
+                for (int i = 4; i < info.Length; i += 2)
+                {
+                    newStudent.RegisterCourseResult(info[i].Trim(), Convert.ToByte(info[i + 1]));
+                }
             }
+            //newStudent.RegisterCourseResult(course, result);
 
-
-
-
-
+            Console.WriteLine();
+            newStudent.ShowOverview();
+            
             Library.ConsoleMethods.Continue();
         }
     }
