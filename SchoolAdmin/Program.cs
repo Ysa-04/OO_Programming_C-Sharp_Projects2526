@@ -36,6 +36,8 @@ namespace SchoolAdmin
                 Thread.Sleep(50);
                 Console.WriteLine("\t   2- Demonstreer cursussen uitvoeren");
                 Thread.Sleep(50);
+                Console.WriteLine("\t   3- Student uit tekstformaat inlezen");
+                Thread.Sleep(50);
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
@@ -126,6 +128,24 @@ namespace SchoolAdmin
             databanken.ShowOverview();
 
             Library.ConsoleMethods.Continue();
+        }
+
+        public static void ReadTextFormatStudent()
+        {
+            Console.WriteLine("Geef de tekstvoorstelling van 1 student in csv-formaat:");
+            string csv = Console.ReadLine();
+            string[] data = csv.Split(";");
+            int day = Convert.ToInt32(data[1]);
+            int month = Convert.ToInt32(data[2]);
+            int year = Convert.ToInt32(data[3]);
+            Student newStudent = new Student(data[0], new DateTime(year, month, day));
+            for (int i = 4; i < data.Length; i += 2)
+            {
+                string subject = data[i];
+                byte result = Convert.ToByte(data[i + 1]);
+                newStudent.RegisterCourseResult(subject, result);
+            }
+            newStudent.ShowOverview();
         }
     }
 }
