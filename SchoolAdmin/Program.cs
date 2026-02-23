@@ -146,6 +146,8 @@ namespace SchoolAdmin
                 newStudent.RegisterCourseResult(subject, result);
             }
             newStudent.ShowOverview();
+
+            Library.ConsoleMethods.Continue();
         }
     }
 }
