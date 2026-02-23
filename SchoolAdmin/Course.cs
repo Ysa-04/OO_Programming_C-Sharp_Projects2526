@@ -43,7 +43,7 @@ namespace SchoolAdmin
 
         public void ShowOverview()
         {
-            Console.WriteLine($"{this.Title} ({this.Id}) - ({this.CreditPoints}sp");
+            Console.WriteLine($"{this.Title} ({this.Id}) - {this.CreditPoints}sp");
             Console.WriteLine("*-*-*-*-*-*-*-*");
             foreach (Student student in Students)
             {
