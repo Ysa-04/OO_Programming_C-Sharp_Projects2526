@@ -150,8 +150,6 @@ namespace SchoolAdmin
                 Convert.ToInt32(info[2]),
                 Convert.ToInt32(info[1])
             );
-            //string course = info[4];
-            //byte result = Convert.ToByte(info[5]);
 
             Student newStudent = new Student(name, birthDate);
             if (info.Length > 4)
@@ -161,7 +159,6 @@ namespace SchoolAdmin
                     newStudent.RegisterCourseResult(info[i].Trim(), Convert.ToByte(info[i + 1]));
                 }
             }
-            //newStudent.RegisterCourseResult(course, result);
 
             Console.WriteLine();
             newStudent.ShowOverview();
