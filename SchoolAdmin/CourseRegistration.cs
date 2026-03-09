@@ -36,3 +36,4 @@ namespace SchoolAdmin
             this.Result = result;
         }
     }
+}

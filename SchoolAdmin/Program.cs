@@ -1,5 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using Library;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SchoolAdmin
 {
@@ -69,6 +70,7 @@ namespace SchoolAdmin
                         ReadTextFormatStudent();
                         break;
                     case 4:
+                        Console.Clear();
                         StudyProgram.DemoStudyProgram();
                         break;
                     default:
@@ -161,12 +163,15 @@ namespace SchoolAdmin
                 Convert.ToInt32(info[1])
             );
 
-            Student newStudent = new Student(name, birthDate);
-            if (info.Length > 4)
+            Student newStudent = new Student(info[0], new DateTime());
+            for (int i = 4; i < info.Length; i += 2)
             {
-                for (int i = 4; i < info.Length; i += 2)
+                int subjectID = Convert.ToInt32(info[i]);
+                Course subject = Course.SearchCourseById(subjectID);
+                if (!(subject is null))
                 {
-                    newStudent.RegisterCourseResult(info[i].Trim(), Convert.ToByte(info[i + 1]));
+                    byte result = Convert.ToByte(info[i + 1]);
+                    newStudent.RegisterCourseResult(subject, result);
                 }
             }
 

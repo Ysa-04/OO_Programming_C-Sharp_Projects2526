@@ -58,6 +58,8 @@ namespace SchoolAdmin
             snbProgram.Courses[1].Title = "Scripting";
             programmerenProgram.ShowOverview();
             snbProgram.ShowOverview();
+
+            Library.ConsoleMethods.Continue();
         }
     }
 }
