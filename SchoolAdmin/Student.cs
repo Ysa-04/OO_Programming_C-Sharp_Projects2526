@@ -10,9 +10,9 @@ namespace SchoolAdmin
     {
         public string Name;
         public DateTime Birthdate;
-        public int StudentNumber;
-        private List<CourseResult> courseResults = new List<CourseResult>();
-        public static int StudentCounter = 1;
+        public uint StudentNumber;
+        private List<CourseRegistration> courseRegistrations = new List<CourseRegistration>();
+        public static uint StudentCounter = 1;
         public int Age
         {
             get
@@ -34,23 +34,25 @@ namespace SchoolAdmin
             this.StudentNumber = StudentCounter;
             Student.StudentCounter++;
         }
-
-        public string GenerateNamecard()
+        public string GenerateNameCard()
         {
             return $"{this.Name} (STUDENT)";
         }
 
-        public int DetermineWorkload()
+        public byte DetermineWorkload()
         {
-            int workload = 0;
-            foreach (CourseResult course in courseResults)
+            byte total = 0;
+            foreach (CourseRegistration course in courseRegistrations)
             {
-                workload += 10;
+                if (course is not null)
+                {
+                    total += 10;
+                }
             }
-            return workload;
+            return total;
         }
 
-        public void RegisterCourseResult(string course, byte result)
+        public void RegisterCourseResult(Course course, byte? result)
         {
             if (result > 20)
             {
@@ -58,19 +60,23 @@ namespace SchoolAdmin
             }
             else
             {
-                CourseResult newCourseresult = new CourseResult(course, result);
-                courseResults.Add(newCourseresult);
-             
+                CourseRegistration newCourseresult = new CourseRegistration(course, result);
+                courseRegistrations.Add(newCourseresult);
             }
         }
         public double Average()
         {
             double totaal = 0;
-            foreach (CourseResult item in courseResults)
+            int counter = 0;
+            foreach (CourseRegistration item in courseRegistrations)
             {
-                totaal += item.Result;
+                if (!(item.Result is null))
+                {
+                    totaal += (byte)item.Result;
+                    counter++;
+                }
             }
-            return totaal / courseResults.Count;
+            return totaal / counter;
         }
         public void ShowOverview()
         {
@@ -79,9 +85,9 @@ namespace SchoolAdmin
             Console.WriteLine();
             Console.WriteLine("Cijferrapport");
             Console.WriteLine("*-*-*-*-*-*-*");
-            foreach (CourseResult item in courseResults)
+            foreach (CourseRegistration item in courseRegistrations)
             {
-                Console.WriteLine($"{item.Name}:\t{item.Result}");
+                Console.WriteLine($"{item.Course.Title}:\t{item.Result}");
             }
             Console.WriteLine($"Gemiddelde:\t{this.Average():F1}\n");
             Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*");

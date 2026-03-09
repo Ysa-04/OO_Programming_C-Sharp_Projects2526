@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace SchoolAdmin
             private set { creditPoints = value; }
         }
         private int id;
+
         public int Id
         {
             get { return id; }
@@ -50,6 +52,17 @@ namespace SchoolAdmin
                 Console.WriteLine($"{student.Name}");
             }
             Console.WriteLine();
+        }
+        public static Course SearchCourseById(int id)
+        {
+            foreach (Course course in AllCourses)
+            {
+                if (id == course.Id)
+                {
+                    return course;
+                }
+            }
+            return null;
         }
     }
 }

@@ -39,6 +39,8 @@ namespace SchoolAdmin
                 Thread.Sleep(50);
                 Console.WriteLine("\t   3- Student uit tekstformaat inlezen");
                 Thread.Sleep(50);
+                Console.WriteLine("\t   4- DemonstreerStudieProgramma uitvoeren");
+                Thread.Sleep(50);
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
@@ -66,6 +68,9 @@ namespace SchoolAdmin
                         Console.Clear();
                         ReadTextFormatStudent();
                         break;
+                    case 4:
+                        StudyProgram.DemoStudyProgram();
+                        break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
                         Thread.Sleep(500);
@@ -80,16 +85,21 @@ namespace SchoolAdmin
         public static void DemoStudents()
         {
             // List<Student> studentList = new List<Student>();
+            Course communicatie = new Course("Communicatie");
+            Course programmeren = new Course("Programmeren");
+            Course webtechnologie = new Course("Webtechnologie");
+            Course databanken = new Course("Databanken");
+
             Student said = new Student("Said Aziz", new DateTime(2000, 6, 1));
-            said.RegisterCourseResult("Communicatie", 12);
-            said.RegisterCourseResult("Programmeren", 15);
-            said.RegisterCourseResult("Webtechnologie", 13);
+            said.RegisterCourseResult(communicatie, 12);
+            said.RegisterCourseResult(programmeren, null);
+            said.RegisterCourseResult(webtechnologie, 13);
             said.ShowOverview();
 
             Student mieke = new Student("Mieke Vermeulen", new DateTime(1998, 1, 1));
-            mieke.RegisterCourseResult("Communicatie", 13);
-            mieke.RegisterCourseResult("Programmeren", 16);
-            mieke.RegisterCourseResult("Databanken", 14);
+            mieke.RegisterCourseResult(communicatie, 13);
+            mieke.RegisterCourseResult(programmeren, 16);
+            mieke.RegisterCourseResult(databanken, 14);
             mieke.ShowOverview();
 
             Library.ConsoleMethods.Continue();
@@ -106,15 +116,7 @@ namespace SchoolAdmin
         public static void DemoCourses()
         {
             Student said = new Student("Said Aziz", new DateTime(2000, 6, 1));
-            said.RegisterCourseResult("Communicatie", 12);
-            said.RegisterCourseResult("Programmeren", 15);
-            said.RegisterCourseResult("Webtechnologie", 13);
-
             Student mieke = new Student("Mieke Vermeulen", new DateTime(1998, 1, 1));
-            mieke.RegisterCourseResult("Communicatie", 13);
-            mieke.RegisterCourseResult("Programmeren", 16);
-            mieke.RegisterCourseResult("Databanken", 14);
-
             List<Student> saidAndMieke = new List<Student>();
             saidAndMieke.Add(said);
             saidAndMieke.Add(mieke);
@@ -126,6 +128,14 @@ namespace SchoolAdmin
 
             webtechnologie.Students.Add(said);
             databanken.Students.Add(mieke);
+
+            said.RegisterCourseResult(communicatie, 12);
+            said.RegisterCourseResult(programmeren, null);
+            said.RegisterCourseResult(webtechnologie, 13);
+
+            mieke.RegisterCourseResult(communicatie, 13);
+            mieke.RegisterCourseResult(programmeren, 16);
+            mieke.RegisterCourseResult(databanken, 14);
 
             communicatie.ShowOverview();
             programmeren.ShowOverview();

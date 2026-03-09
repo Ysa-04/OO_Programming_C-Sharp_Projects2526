@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin
 {
-    internal class CourseResult
+    internal class CourseRegistration
     {
-        private string name;
-        public string Name
+        private Course course;
+        public Course Course
         {
-            get
-            {
-                return this.name;
-            }
+            get { return course; }
+            set { course = value; }
         }
-        private byte result;
-        public byte Result
+        private byte? result;
+        public byte? Result
         {
             get
             {
@@ -25,17 +23,16 @@ namespace SchoolAdmin
             }
             set
             {
-                if (!(value > 20))
+                if (!(value is null) && !(value > 20))
                 {
                     result = value;
                 }
             }
         }
 
-        public CourseResult(string name, byte result)
+        public CourseRegistration(Course course, byte? result)
         {
-            this.name = name;
+            this.Course = course;
             this.Result = result;
         }
     }
-}
