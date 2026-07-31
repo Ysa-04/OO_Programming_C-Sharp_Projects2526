@@ -1,21 +1,27 @@
 ﻿using Library;
-using SchoolExcercises;
+using KlassenEnObjecten;
 
-namespace OO_Programming_C_Sharp_Projects2526
+namespace SchoolExcercises
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
+        {
+            Menu();
+            // TODO: add all excercises & menu's per chapter
+        }
+        public static void Menu()
         {
             bool go = true;
             while (go)
             {
+                Thread.Sleep(1000);
                 Console.Clear();
                 Library.Program.ShowLogo();
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                Console.WriteLine("\t   | Welcome to my Projects! |");
-                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*");
+                Console.WriteLine("\t   | Gitbook Excercises  |");
+                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*");
                 Console.WriteLine();
                 Console.ResetColor();
 
@@ -25,43 +31,37 @@ namespace OO_Programming_C_Sharp_Projects2526
                 ConsoleMethods.CharByChar(title);
                 Console.WriteLine();
                 ConsoleMethods.CharByChar(border);
-                Thread.Sleep(50);
                 Console.WriteLine();
                 Console.WriteLine("\t   0- EXIT");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   1- LIBRARY METHODS OVERVIEW");
+                Console.WriteLine("\t   1- H1 Klassen en objecten");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   2- SCHOOLADMIN");
+                Console.WriteLine("\t   2- ");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   3- School Excercises");
+                Console.WriteLine("\t   3- ");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   4- ");
+                Thread.Sleep(50);
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                string message = "Make your choice: ";
-                Library.ConsoleMethods.CharByChar(message);
+                string message = "Maak je keuze: ";
+                ConsoleMethods.CharByChar(message);
                 int choice = Convert.ToInt32(Console.ReadLine());
                 Console.ResetColor();
-               
 
                 switch (choice)
                 {
                     case 0:
-                        Library.ConsoleMethods.ExitProgram();                       
+                        Library.ConsoleMethods.ExitProgram();
                         go = false;
                         break;
                     case 1:
                         Console.Clear();
-                        ConsoleMethods.LoadScreen();
-                        Library.Program.Menu();
+                        KlassenEnObjecten.Program.Menu();
                         break;
                     case 2:
                         Console.Clear();
-                        ConsoleMethods.LoadScreen();
-                        SchoolAdmin.Program.Menu();
-                        break;
-                    case 3:
-                        Console.Clear();
-                        ConsoleMethods.LoadScreen();
-                        SchoolExcercises.Program.Menu();
+                        
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
@@ -74,4 +74,3 @@ namespace OO_Programming_C_Sharp_Projects2526
         }
     }
 }
-
