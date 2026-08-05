@@ -4,7 +4,7 @@ namespace KlassenEnObjecten
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Menu();
         }
@@ -38,8 +38,15 @@ namespace KlassenEnObjecten
                 Thread.Sleep(50);
                 Console.WriteLine("\t   3- DayOfTheWeek");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   4- ");
+                Console.WriteLine("\t   4- TicksSince2000");
                 Thread.Sleep(50);
+                Console.WriteLine("\t   5- LeapYearCount");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   6- CodeTiming");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   7- DemoCombinationOf2Numbers");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   8- Figures");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
@@ -70,6 +77,23 @@ namespace KlassenEnObjecten
                     case 4:
                         Console.Clear();
                         TicksSince2000();
+                        break;
+                    case 5:
+                        Console.Clear();
+                        LeapYearCount();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        CodeTiming();
+                        break;
+                    case 7:
+                        Console.Clear();
+                        DemoCombinationOf2Numbers();
+                        break;
+                    case 8:
+                        //TODO: nog eens hermaken als herhaling!
+                        Console.Clear();
+                        Figures();
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
@@ -122,6 +146,7 @@ namespace KlassenEnObjecten
 
                 Console.WriteLine($"Nog {diff.TotalDays} dagen tot je verjaardag!");
             }
+            Library.ConsoleMethods.Continue();
         }
         public static void DayOfTheWeek()
         {
@@ -139,11 +164,55 @@ namespace KlassenEnObjecten
             CultureInfo belgianCI = new CultureInfo("nl-BE");
 
             Console.WriteLine($"{date.ToString("d MMMM yyyy", belgianCI)} is een {date.ToString("dddd")}"); // geen DayOfWeek gebruiken
+            Library.ConsoleMethods.Continue();
         }
         public static void TicksSince2000()
         {
-
+            //TODO: herhalingsoef
         }
+        public static void LeapYearCount()
+        {
+            //TODO: herhalingsoef
+        }
+        public static void CodeTiming()
+        {
+            //TODO: herhalingsoef
+        }
+        public static void DemoCombinationOf2Numbers()
+        {
+            CombinationOf2Numbers pair = new CombinationOf2Numbers(12,34);
+            //pair.Number1 = 12;
+            //pair.Number2 = 34;
+            Console.WriteLine("Paar:" + pair.Number1 + ", " + pair.Number2);
+            Console.WriteLine("Som = " + pair.Sum());
+            Console.WriteLine("Verschil = " + pair.Difference());
+            Console.WriteLine("Product = " + pair.Product());
+            Console.WriteLine("Quotient = " + pair.Quotient());
+            Library.ConsoleMethods.Continue();
+        }
+
+        public static void Figures() 
+        {
+            Rectangle rectangle1 = new Rectangle();
+            rectangle1.Width = -1;
+            rectangle1.Height = 0;
+            rectangle1.Width = 2.2;
+            rectangle1.Height = 1.5;
+            Rectangle rectangle2 = new Rectangle();
+            rectangle2.Width = 3;
+            rectangle2.Height = 1;
+            Triangle triangle1 = new Triangle();
+            triangle1.Base = 3;
+            triangle1.Height = 1;
+            Triangle triangle2 = new Triangle();
+            triangle2.Base = 2;
+            triangle2.Height = 2;
+            Console.WriteLine($"Een rechthoek met een breedte van {rectangle1.Width}m en een hoogte van {rectangle1.Height}m heeft een oppervlakte van {rectangle1.Area:F1}m²");
+            Console.WriteLine($"Een rechthoek met een breedte van {rectangle2.Width}m en een hoogte van {rectangle2.Height}m heeft een oppervlakte van {rectangle2.Area:F1}m²");
+            Console.WriteLine($"Een driehoek met een basis van {triangle1.Base}m en een hoogte van {triangle1.Height}m heeft een oppervlakte van {triangle1.Area:F1}m²");
+            Console.WriteLine($"Een driehoek met een basis van {triangle2.Base}m en een hoogte van {triangle2.Height}m heeft een oppervlakte van {triangle2.Area:F1}m²");
+        }
+
 
     }
 }
