@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.8.12009.203 stable
+VisualStudioVersion = 18.8.12009.203
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OO_Programming_C-Sharp_Projects2526", "OO_Programming_C-Sharp_Projects2526\OO_Programming_C-Sharp_Projects2526.csproj", "{9CB33E7A-AB19-445F-88CF-B82A072D8441}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolExcercises", "SchoolExcercises\SchoolExcercises.csproj", "{951ADD3F-9AC4-4E1E-873A-573D84591B33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlassenEnObjecten", "KlassenEnObjecten\KlassenEnObjecten.csproj", "{903BF4AE-C5A6-49B2-A651-EA320351D87D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objecten", "Objecten\Objecten.csproj", "{980B7AA6-54CE-42CC-B0F6-3E1F77766FF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{903BF4AE-C5A6-49B2-A651-EA320351D87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{903BF4AE-C5A6-49B2-A651-EA320351D87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{903BF4AE-C5A6-49B2-A651-EA320351D87D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980B7AA6-54CE-42CC-B0F6-3E1F77766FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980B7AA6-54CE-42CC-B0F6-3E1F77766FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980B7AA6-54CE-42CC-B0F6-3E1F77766FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980B7AA6-54CE-42CC-B0F6-3E1F77766FF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

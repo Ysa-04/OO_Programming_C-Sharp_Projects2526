@@ -169,14 +169,17 @@ namespace KlassenEnObjecten
         public static void TicksSince2000()
         {
             //TODO: herhalingsoef
+            Library.ConsoleMethods.Continue();
         }
         public static void LeapYearCount()
         {
             //TODO: herhalingsoef
+            Library.ConsoleMethods.Continue();
         }
         public static void CodeTiming()
         {
             //TODO: herhalingsoef
+            Library.ConsoleMethods.Continue();
         }
         public static void DemoCombinationOf2Numbers()
         {
@@ -211,6 +214,7 @@ namespace KlassenEnObjecten
             Console.WriteLine($"Een rechthoek met een breedte van {rectangle2.Width}m en een hoogte van {rectangle2.Height}m heeft een oppervlakte van {rectangle2.Area:F1}m²");
             Console.WriteLine($"Een driehoek met een basis van {triangle1.Base}m en een hoogte van {triangle1.Height}m heeft een oppervlakte van {triangle1.Area:F1}m²");
             Console.WriteLine($"Een driehoek met een basis van {triangle2.Base}m en een hoogte van {triangle2.Height}m heeft een oppervlakte van {triangle2.Area:F1}m²");
+            Library.ConsoleMethods.Continue();
         }
 
 

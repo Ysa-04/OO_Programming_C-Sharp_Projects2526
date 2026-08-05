@@ -4,14 +4,14 @@ using System.Text;
 
 namespace KlassenEnObjecten
 {
-    internal class Triangle
+    internal class Rectangle
     {
-        private double @base = 1.0;
-        public double Base
+        private double width = 1.0;
+        public double Width
         {
             get
             {
-                return @base;
+                return width;
             }
             set
             {
@@ -21,7 +21,7 @@ namespace KlassenEnObjecten
                 }
                 else
                 {
-                    this.@base = value;
+                    this.width = value;
                 }
                 
             }
@@ -30,11 +30,11 @@ namespace KlassenEnObjecten
         private double height = 1.0;
         public double Height
         {
-            get 
-            { 
-                return height; 
+            get
+            {
+                return height;
             }
-            set 
+            set
             {
                 if (value <= 0)
                 {
@@ -44,18 +44,27 @@ namespace KlassenEnObjecten
                 {
                     this.height = value;
                 }
-               
+                
             }
         }
-        //geen private, want je moet toch niks aanpassen.
         public double Area
         {
             get
             {
-                return this.Height * this.Base;
+                return this.Height * this.Width;
             }
         }
 
+        public Rectangle(double width, double height)
+        {
+            this.Width = width;
+            this.Height = height;
+        }
+
+        public Rectangle()
+        {
+
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Library;
 using KlassenEnObjecten;
+using Objecten;
 
 namespace SchoolExcercises
 {
@@ -36,7 +37,7 @@ namespace SchoolExcercises
                 Thread.Sleep(50);
                 Console.WriteLine("\t   1- H1 Klassen en objecten");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   2- ");
+                Console.WriteLine("\t   2- Objecten (al dan niet) aanmaken");
                 Thread.Sleep(50);
                 Console.WriteLine("\t   3- ");
                 Thread.Sleep(50);
@@ -61,7 +62,7 @@ namespace SchoolExcercises
                         break;
                     case 2:
                         Console.Clear();
-                        
+                        Objecten.Program.Menu();
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");

@@ -56,6 +56,16 @@ namespace KlassenEnObjecten
             }
         }
 
+        public Triangle(double @base, double height)
+        {
+            this.Base = @base;
+            this.Height = height;
+        }
+
+        public Triangle()
+        {
+
+        }
 
     }
 }
