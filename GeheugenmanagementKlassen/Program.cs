@@ -1,16 +1,12 @@
 ﻿using Library;
-using KlassenEnObjecten;
-using Objecten;
-using Overerving;
 
-namespace SchoolExcercises
+namespace GeheugenmanagementKlassen
 {
     public class Program
     {
         static void Main(string[] args)
         {
             Menu();
-            // TODO: add all excercises & menu's per chapter
         }
         public static void Menu()
         {
@@ -21,9 +17,9 @@ namespace SchoolExcercises
                 Console.Clear();
                 Library.Program.ShowLogo();
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*");
-                Console.WriteLine("\t   | Gitbook Excercises  |");
-                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*");
+                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                Console.WriteLine("\t   |  H2. Objecten (al dan niet) aanmaken  |");
+                Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 Console.WriteLine();
                 Console.ResetColor();
 
@@ -36,13 +32,9 @@ namespace SchoolExcercises
                 Console.WriteLine();
                 Console.WriteLine("\t   0- EXIT");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   1- H1 Klassen en objecten");
+                Console.WriteLine("\t   1- FiguresWithConstructor");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   2- Objecten (al dan niet) aanmaken");
-                Thread.Sleep(50);
-                Console.WriteLine("\t   3- Datastructuren");
-                Thread.Sleep(50);
-                Console.WriteLine("\t   4- Overerving");
+                Console.WriteLine("\t   2- FoodPurchase");
                 Thread.Sleep(50);
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -55,23 +47,17 @@ namespace SchoolExcercises
                 {
                     case 0:
                         Library.ConsoleMethods.ExitProgram();
+                        Console.WriteLine();
+                        Library.ConsoleMethods.BackToMainMenu();
                         go = false;
                         break;
                     case 1:
                         Console.Clear();
-                        KlassenEnObjecten.Program.Menu();
+                        
                         break;
                     case 2:
                         Console.Clear();
-                        Objecten.Program.Menu();
-                        break;
-                    case 3:
-                        Console.Clear();
                         
-                        break;
-                    case 4:
-                        Console.Clear();
-                        Overerving.Program.Menu();
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
@@ -82,5 +68,4 @@ namespace SchoolExcercises
                 }
             }
         }
-    }
 }
