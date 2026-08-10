@@ -35,7 +35,7 @@ namespace Datastructuren
                 Thread.Sleep(50);
                 Console.WriteLine("\t   1- PhoneBookNameNumber");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   2- ");
+                Console.WriteLine("\t   2- PhoneBookCityNameNumber");
                 Thread.Sleep(50);
                 Console.WriteLine("\t   3- ");
                 Thread.Sleep(50);
@@ -69,31 +69,7 @@ namespace Datastructuren
                         break;
                     case 2:
                         Console.Clear();
-
-                        break;
-                    case 3:
-                        Console.Clear();
-
-                        break;
-                    case 4:
-                        Console.Clear();
-
-                        break;
-                    case 5:
-                        Console.Clear();
-
-                        break;
-                    case 6:
-                        Console.Clear();
-
-                        break;
-                    case 7:
-                        Console.Clear();
-
-                        break;
-                    case 8:
-                        Console.Clear();
-
+                        PhoneBookCityNameNumber();
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
@@ -137,6 +113,37 @@ namespace Datastructuren
 
             Library.ConsoleMethods.Continue();
             
+        }
+
+        public static void PhoneBookCityNameNumber()
+        {
+            Dictionary<string, Dictionary<string, string>> phoneBook = new Dictionary<string, Dictionary<string, string>>();
+            Console.WriteLine("Wil je een gemeente, naam en nummer inlezen?");
+            string go = Console.ReadLine();
+            while (go.ToLower() == "ja")
+            {
+                Console.WriteLine("Gemeente?");
+                string city = Console.ReadLine();
+                if (!phoneBook.ContainsKey(city))
+                {
+                    phoneBook.Add(city, new Dictionary<string, string>());
+                }
+                Console.WriteLine("Naam?");
+                string name = Console.ReadLine();
+                Console.WriteLine("Nummer?");
+                string number = Console.ReadLine();
+                phoneBook[city][name] = number;
+                Console.WriteLine("Wil je nog een gemeente, naam en nummer inlezen?");
+                go = Console.ReadLine();
+            }
+            foreach (var city in phoneBook)
+            {
+                Console.WriteLine($"Gemeente: {city.Key}");
+                foreach (var nameNumber in city.Value)
+                {
+                    Console.WriteLine($"{nameNumber.Key}: {nameNumber.Value}");
+                }
+            }
         }
     }
 }
