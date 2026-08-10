@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Datastructuren\Datastructuren.csproj" />
-    <ProjectReference Include="..\KlassenEnObjecten\KlassenEnObjecten.csproj" />
     <ProjectReference Include="..\Library\Library.csproj" />
-    <ProjectReference Include="..\Objecten\Objecten.csproj" />
-    <ProjectReference Include="..\Overerving\Overerving.csproj" />
   </ItemGroup>
 
 </Project>

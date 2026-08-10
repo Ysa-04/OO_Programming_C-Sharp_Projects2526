@@ -1,18 +1,14 @@
 ﻿using Library;
-using KlassenEnObjecten;
-using Objecten;
-using Datastructuren;
-using Overerving;
-
-namespace SchoolExcercises
+using System.Security.Cryptography.X509Certificates;
+namespace Datastructuren
 {
-    public class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
             Menu();
-            // TODO: add all excercises & menu's per chapter
         }
+
         public static void Menu()
         {
             bool go = true;
@@ -23,7 +19,7 @@ namespace SchoolExcercises
                 Library.Program.ShowLogo();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*");
-                Console.WriteLine("\t   | Gitbook Excercises  |");
+                Console.WriteLine("\t   |  H3. Datastructuren |");
                 Console.WriteLine("\t   *-*-*-*-*-*-*-*-*-*-*-*");
                 Console.WriteLine();
                 Console.ResetColor();
@@ -37,14 +33,21 @@ namespace SchoolExcercises
                 Console.WriteLine();
                 Console.WriteLine("\t   0- EXIT");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   1- H1 Klassen en objecten");
+                Console.WriteLine("\t   1- PhoneBookNameNumber");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   2- Objecten (al dan niet) aanmaken");
+                Console.WriteLine("\t   2- ");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   3- Datastructuren");
+                Console.WriteLine("\t   3- ");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   4- Overerving");
+                Console.WriteLine("\t   4- ");
                 Thread.Sleep(50);
+                Console.WriteLine("\t   5- ");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   6- ");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   7- ");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   8- ");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
@@ -56,23 +59,41 @@ namespace SchoolExcercises
                 {
                     case 0:
                         Library.ConsoleMethods.ExitProgram();
+                        Console.WriteLine();
+                        Library.ConsoleMethods.BackToMainMenu();
                         go = false;
                         break;
                     case 1:
                         Console.Clear();
-                        KlassenEnObjecten.Program.Menu();
+                        PhoneBookNameNumber();
                         break;
                     case 2:
                         Console.Clear();
-                        Objecten.Program.Menu();
+
                         break;
                     case 3:
                         Console.Clear();
-                        
+
                         break;
                     case 4:
                         Console.Clear();
-                        Overerving.Program.Menu();
+
+                        break;
+                    case 5:
+                        Console.Clear();
+
+                        break;
+                    case 6:
+                        Console.Clear();
+
+                        break;
+                    case 7:
+                        Console.Clear();
+
+                        break;
+                    case 8:
+                        Console.Clear();
+
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
@@ -82,6 +103,40 @@ namespace SchoolExcercises
                         break;
                 }
             }
+        }
+        public static void PhoneBookNameNumber()
+        {
+            Dictionary<string, string> phonebook = new Dictionary<string, string>();
+            Console.WriteLine("Wil je een naam en nummer toevoegen? (ja/nee)");
+            string answer = Console.ReadLine();
+            bool go = false;
+            if (answer.Trim().ToLower() == "ja")
+            {
+                go = true;
+            }
+
+            while (go)
+            {
+                Console.Write("Naam?: ");
+                string name = Console.ReadLine();
+                Console.Write("Nummer?: ");
+                string number = Console.ReadLine();
+                phonebook.Add(name, number);
+                Console.WriteLine("Wil je nog een naam en nummer toevoegen? (ja/nee)");
+                answer = Console.ReadLine();
+                if (answer.Trim().ToLower() == "nee")
+                {
+                    go = false;
+                }
+            }
+
+            foreach (var item in phonebook)
+            {
+                Console.WriteLine($"{item.Key}:\t{item.Value}");
+            }
+
+            Library.ConsoleMethods.Continue();
+            
         }
     }
 }
