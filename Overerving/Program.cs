@@ -69,7 +69,7 @@ namespace Overerving
                         break;
                     case 2:
                         Console.Clear();
-                        
+                        DemoHashCode();
                         break;
                     case 3:
                         Console.Clear();
@@ -93,7 +93,7 @@ namespace Overerving
                         break;
                     case 8:
                         Console.Clear();
-                       
+                        
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
@@ -157,6 +157,67 @@ namespace Overerving
 
             Library.ConsoleMethods.Continue();
       
+        }
+
+        public static void DemoHashCode()
+        {
+            // Maak een HashSet aan voor unieke producten
+            HashSet<Product> inventaris = new HashSet<Product>();
+
+            // Product 1: Een fles cola (gescand bij de kassa)
+            Product p1 = new Product("5410013115123", "Coca-Cola 1L", 2.50m);
+
+            // Product 2: Dezelfde fles cola, maar fysiek een ander object in het geheugen (misschien een andere prijs of omschrijving ingetypt, maar dezelfde barcode!)
+            Product p2 = new Product("5410013115123", "Cola 1L", 2.60m);
+
+            inventaris.Add(p1);
+            inventaris.Add(p2); // Wordt GEWEIGERD!
+
+            Console.WriteLine(inventaris.Count);
+            // Uitvoer: 1
+            Library.ConsoleMethods.Continue();
+        }
+
+        public static void BoekDemo()
+        {
+            // We maken twee boeken aan met exact hetzelfde ISBN (maar andere objecten in het geheugen)
+            Boek boek1 = new Boek("978-90-245-6789-0", "De Hobbit", "J.R.R. Tolkien");
+            Boek boek2 = new Boek("978-90-245-6789-0", "De Hobbit (Tweede druk)", "J.R.R. Tolkien");
+
+            // ---------------------------------------------------------
+            // 1. Test van ToString()
+            // ---------------------------------------------------------
+            Console.WriteLine(boek1);
+            // Uitvoer: Boek: 'De Hobbit' van J.R.R. Tolkien (ISBN: 978-90-245-6789-0)
+
+
+            // ---------------------------------------------------------
+            // 2. Test van GetType()
+            // ---------------------------------------------------------
+            Console.WriteLine(boek1.GetType().Name);
+            // Uitvoer: Boek
+
+
+            // ---------------------------------------------------------
+            // 3. Test van Equals() vs ==
+            // ---------------------------------------------------------
+            Console.WriteLine(boek1 == boek2);
+            // Uitvoer: FALSE (Want het zijn fysiek twee verschillende objecten in het geheugen)
+
+            Console.WriteLine(boek1.Equals(boek2));
+            // Uitvoer: TRUE (Want onze Equals-methode kijkt naar het ISBN, en dat is hetzelfde!)
+
+
+            // ---------------------------------------------------------
+            // 4. Test van GetHashCode() in een HashSet (unieke lijst)
+            // ---------------------------------------------------------
+            HashSet<Boek> bibliotheekCollectie = new HashSet<Boek>();
+
+            bibliotheekCollectie.Add(boek1);
+            bibliotheekCollectie.Add(boek2); // Wordt geweigerd door dezelfde HashCode én Equals!
+
+            Console.WriteLine($"Aantal unieke boeken in de collectie: {bibliotheekCollectie.Count}");
+            // Uitvoer: Aantal unieke boeken in de collectie: 1
         }
     }
 }
