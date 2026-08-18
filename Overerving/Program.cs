@@ -83,7 +83,7 @@ namespace Overerving
                         break;
                     case 5:
                         Console.Clear();
-                        //Menu
+                        DemoMeals();
                         break;
                     case 6:
                         Console.Clear();
@@ -284,6 +284,26 @@ namespace Overerving
             veggie.ShowIngredients();
 
 
+        }
+
+        public static void DemoMeals()
+        {
+            Meal paling = new Meal("Paling in 't groen", 22);
+            Meal waterzooi = new Meal("Waterzooi", 22);
+            Meal vol = new ChildrenMeal("Kinder vol-au-vent", 11);
+            Meal kabouter = new ChildrenMeal("Kabouterschnitzel", 13);
+
+            List<Meal> allMeals = new List<Meal>();
+            allMeals.Add(paling);
+            allMeals.Add(vol);
+            allMeals.Add(waterzooi);
+            allMeals.Add(kabouter);
+
+            foreach (Meal item in allMeals)
+            {
+                item.ShowMenu();
+            }
+            Library.ConsoleMethods.Continue();
         }
 
     }
