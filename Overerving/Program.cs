@@ -75,7 +75,7 @@ namespace Overerving
                         break;
                     case 3:
                         Console.Clear();
-                        //Orders
+                        DemoOrders();
                         break;
                     case 4:
                         Console.Clear();
@@ -245,6 +245,33 @@ namespace Overerving
             // Uitvoer: Aantal unieke boeken in de collectie: 1
             Library.ConsoleMethods.Continue();
         }
-       
+        public static void DemoOrders()
+        {
+            Console.WriteLine("Aantal stuks?");
+            uint number = Convert.ToUInt32(Console.ReadLine());
+
+            Console.WriteLine("Basisprijs?");
+            double unitPrice = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Gewone bestelling (1) of internationale bestelling (2)?");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Order normalOrder = new Order(number, unitPrice);
+                    Console.WriteLine($"Totaalprijs: {normalOrder.TotalPrice}");
+                    break;
+                case 2:
+                    InternationalOrder iOrder = new InternationalOrder(number, unitPrice);
+                    Console.WriteLine($"Totaalprijs: {iOrder.TotalPrice}");
+                    break;
+                default:
+                    Console.WriteLine("Ongeldige keuze");
+                    break;
+            }
+        }
+
+
     }
 }
