@@ -79,7 +79,7 @@ namespace Overerving
                         break;
                     case 4:
                         Console.Clear();
-                        //Pizza
+                        DemoPizza();
                         break;
                     case 5:
                         Console.Clear();
@@ -273,6 +273,18 @@ namespace Overerving
             Library.ConsoleMethods.Continue();
         }
 
+        public static void DemoPizza()
+        {
+            Margherita margherita = new Margherita(new string[0]);
+            Console.WriteLine($"Een Margherita zonder extra's kost: {margherita.Price:F2}\nDe ingredienten zijn: ");
+            margherita.ShowIngredients();
+
+            Veggie veggie = new Veggie(new string[0]);
+            Console.WriteLine($"Een Margherita zonder extra's kost: {veggie.Price:F2}\nDe ingredienten zijn: ");
+            veggie.ShowIngredients();
+
+
+        }
 
     }
 }
