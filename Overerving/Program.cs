@@ -39,11 +39,17 @@ namespace Overerving
                 Thread.Sleep(50);
                 Console.WriteLine("\t   2- Veterinarian");
                 Thread.Sleep(50);
+                Console.WriteLine("\t   3- Orders-Bugfix");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   4- Pizza");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   5- Menu");
+                Thread.Sleep(50);
                 Console.WriteLine("\n\t   DEMO'S:");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   3- Demo HashCode");
+                Console.WriteLine("\t   6- Demo HashCode");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   4- Demo Boek");
+                Console.WriteLine("\t   7- Demo Boek");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
@@ -69,27 +75,23 @@ namespace Overerving
                         break;
                     case 3:
                         Console.Clear();
-                        DemoHashCode();
+                        //Orders
                         break;
                     case 4:
                         Console.Clear();
-                        BoekDemo();
+                        //Pizza
                         break;
                     case 5:
                         Console.Clear();
-                        
+                        //Menu
                         break;
                     case 6:
                         Console.Clear();
-                       
+                        DemoHashCode();
                         break;
                     case 7:
                         Console.Clear();
-                        
-                        break;
-                    case 8:
-                        Console.Clear();
-                        
+                        BoekDemo();
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");
