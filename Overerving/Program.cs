@@ -33,21 +33,17 @@ namespace Overerving
                 Console.WriteLine();
                 Console.WriteLine("\t   0- EXIT");
                 Thread.Sleep(50);
+                Console.WriteLine("\n\t   EXCERCISES:");
+                Thread.Sleep(50);
                 Console.WriteLine("\t   1- Post Office");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   2- ");
+                Console.WriteLine("\t   2- Veterinarian");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   3- ");
+                Console.WriteLine("\n\t   DEMO'S:");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   4- ");
+                Console.WriteLine("\t   3- Demo HashCode");
                 Thread.Sleep(50);
-                Console.WriteLine("\t   5- ");
-                Thread.Sleep(50);
-                Console.WriteLine("\t   6- ");
-                Thread.Sleep(50);
-                Console.WriteLine("\t   7- ");
-                Thread.Sleep(50);
-                Console.WriteLine("\t   8- ");
+                Console.WriteLine("\t   4- Demo Boek");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
@@ -69,15 +65,15 @@ namespace Overerving
                         break;
                     case 2:
                         Console.Clear();
-                        DemoHashCode();
+                        DemoVet();
                         break;
                     case 3:
                         Console.Clear();
-                        
+                        DemoHashCode();
                         break;
                     case 4:
                         Console.Clear();
-                        
+                        BoekDemo();
                         break;
                     case 5:
                         Console.Clear();
@@ -159,6 +155,33 @@ namespace Overerving
       
         }
 
+        public static void DemoVet()
+        {
+            var patients = new List<Animal>();
+            var animal1 = new Dog();
+            animal1.IndividualAllergies = new List<string> { "vis" };
+            animal1.Chip = "ABC123";
+            animal1.Gender = Genders.Female;
+            animal1.Name = "Misty";
+            patients.Add(animal1);
+            var animal2 = new Parrot();
+            animal2.Gender = Genders.Male;
+            animal2.Name = "Coco";
+            patients.Add(animal2);
+            foreach (var animal in patients)
+            {
+                Console.WriteLine(animal.Name);
+                Console.WriteLine(animal.Gender);
+                Console.WriteLine("allergieën:");
+                foreach (var allergie in animal.Allergies)
+                {
+                    Console.WriteLine(allergie);
+                }
+                animal.ShowChip();
+            }
+            Library.ConsoleMethods.Continue();
+        }
+
         public static void DemoHashCode()
         {
             // Maak een HashSet aan voor unieke producten
@@ -218,6 +241,8 @@ namespace Overerving
 
             Console.WriteLine($"Aantal unieke boeken in de collectie: {bibliotheekCollectie.Count}");
             // Uitvoer: Aantal unieke boeken in de collectie: 1
+            Library.ConsoleMethods.Continue();
         }
+       
     }
 }
