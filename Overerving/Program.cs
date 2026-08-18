@@ -260,16 +260,17 @@ namespace Overerving
             {
                 case 1:
                     Order normalOrder = new Order(number, unitPrice);
-                    Console.WriteLine($"Totaalprijs: {normalOrder.TotalPrice}");
+                    Console.WriteLine($"Totaalprijs: {normalOrder.TotalPrice:F2}");
                     break;
                 case 2:
                     InternationalOrder iOrder = new InternationalOrder(number, unitPrice);
-                    Console.WriteLine($"Totaalprijs: {iOrder.TotalPrice}");
+                    Console.WriteLine($"Totaalprijs: {iOrder.TotalPrice:F2}");
                     break;
                 default:
                     Console.WriteLine("Ongeldige keuze");
                     break;
             }
+            Library.ConsoleMethods.Continue();
         }
 
 
