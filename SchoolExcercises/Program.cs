@@ -3,6 +3,8 @@ using KlassenEnObjecten;
 using Objecten;
 using Datastructuren;
 using Overerving;
+using ExceptionHandling;
+using System.Runtime.ExceptionServices;
 
 namespace SchoolExcercises
 {
@@ -45,6 +47,7 @@ namespace SchoolExcercises
                 Thread.Sleep(50);
                 Console.WriteLine("\t   4- Overerving");
                 Thread.Sleep(50);
+                Console.WriteLine("\t   5- Exception Handling");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
@@ -68,11 +71,15 @@ namespace SchoolExcercises
                         break;
                     case 3:
                         Console.Clear();
-                        
+                        Datastructuren.Program.Menu();
                         break;
                     case 4:
                         Console.Clear();
                         Overerving.Program.Menu();
+                        break;
+                    case 5:
+                        Console.Clear();
+                        ExceptionHandling.Program.Menu();
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");

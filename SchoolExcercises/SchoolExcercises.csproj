@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Datastructuren\Datastructuren.csproj" />
+    <ProjectReference Include="..\ExceptionHandling\ExceptionHandling.csproj" />
     <ProjectReference Include="..\KlassenEnObjecten\KlassenEnObjecten.csproj" />
     <ProjectReference Include="..\Library\Library.csproj" />
     <ProjectReference Include="..\Objecten\Objecten.csproj" />
