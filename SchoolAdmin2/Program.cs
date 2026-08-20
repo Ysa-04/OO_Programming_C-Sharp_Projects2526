@@ -11,6 +11,7 @@
             Console.WriteLine("Wat wil je doen?");
             Console.WriteLine("1. DemonstreerStudenten uitvoeren");
             Console.WriteLine("2. DemonstreerCursussen uitvoeren");
+            Console.WriteLine("3. Student uit csv inlezen");
             Console.WriteLine();
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
@@ -21,6 +22,10 @@
                 case 2:
                     Console.WriteLine();
                     DemoCourses();
+                    break;
+                case 3:
+                    Console.WriteLine();
+                    ReadTextFormatStudent();
                     break;
                 default:
                     break;
@@ -77,7 +82,26 @@
             webtechnologie.ShowOverview();
         }
 
-        
+        public static void ReadTextFormatStudent()
+        {
+            Console.WriteLine("Geef de tekstvoorstelling van 1 student in csv-formaat:");
+            string csv = Console.ReadLine();
+            string[] data = csv.Split(";");
+            int day = Convert.ToInt32(data[1]);
+            int month = Convert.ToInt32(data[2]);
+            int year = Convert.ToInt32(data[3]);
+            Student newStudent = new Student(data[0], new DateTime(year, month, day));
+            for (int i = 4; i < data.Length; i+=2)
+            {
+                string course = data[i];
+                byte result = Convert.ToByte(data[i + 1]);
+                newStudent.RegisterCourseResult(course, result);
+            }
+            newStudent.ShowOverview();
+            // Bart Van Steen;04;03;1998;Boekhouden;14;Macro-economie;8;Frans, deel 2;18
+        }
+
+
 
     }
 }
