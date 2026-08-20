@@ -16,7 +16,6 @@
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine();
                     DemoStudents();
                     break;
                 case 2:
@@ -38,25 +37,24 @@
             said.BirthDay = new DateTime(2000, 6, 1);
             said.StudentNumber = Student.StudentCounter;
             Student.StudentCounter++;
-            said.RegisterForCourse("Programmeren");
-            said.RegisterForCourse("Webtechnologie");
-            said.RegisterForCourse("Communicatie");
+            said.RegisterCourseResult("Programmeren", 15);
+            said.RegisterCourseResult("Webtechnologie",13);
+            said.RegisterCourseResult("Communicatie",12);
 
             Student mieke = new Student();
             mieke.Name = "Mieke Vermeulen";
             mieke.BirthDay = new DateTime(1998, 1, 1);
             mieke.StudentNumber = Student.StudentCounter;
             Student.StudentCounter++;
-            mieke.RegisterForCourse("Communicatie");
-            mieke.RegisterForCourse("Programmeren");
-            mieke.RegisterForCourse("Databanken");
+            mieke.RegisterCourseResult("Communicatie",13);
+            mieke.RegisterCourseResult("Programmeren", 16);
+            mieke.RegisterCourseResult("Databanken",14);
 
-            Console.WriteLine(said.GenerateNamecard());
-            Console.WriteLine(said.DetermineWorkload());
-            Console.WriteLine(mieke.GenerateNamecard());
-            Console.WriteLine(mieke.DetermineWorkload());
+            said.ShowOverview();
+            mieke.ShowOverview();
         }
 
+        
         public static void DemoCourses()
         {
             Student said = new Student();
@@ -64,18 +62,18 @@
             said.BirthDay = new DateTime(2000, 6, 1);
             said.StudentNumber = Student.StudentCounter;
             Student.StudentCounter++;
-            said.RegisterForCourse("Programmeren");
-            said.RegisterForCourse("Webtechnologie");
-            said.RegisterForCourse("Communicatie");
+            said.RegisterCourseResult("Programmeren", 15);
+            said.RegisterCourseResult("Webtechnologie", 13);
+            said.RegisterCourseResult("Communicatie", 12);
 
             Student mieke = new Student();
             mieke.Name = "Mieke Vermeulen";
             mieke.BirthDay = new DateTime(1998, 1, 1);
             mieke.StudentNumber = Student.StudentCounter;
             Student.StudentCounter++;
-            mieke.RegisterForCourse("Communicatie");
-            mieke.RegisterForCourse("Programmeren");
-            mieke.RegisterForCourse("Databanken");
+            mieke.RegisterCourseResult("Communicatie", 13);
+            mieke.RegisterCourseResult("Programmeren", 16);
+            mieke.RegisterCourseResult("Databanken", 14);
 
             Course programmeren = new Course();
             programmeren.Title = "Programmeren";
@@ -100,5 +98,8 @@
             communicatie.ShowOverview();
             webtechnologie.ShowOverview();
         }
+
+        
+
     }
 }

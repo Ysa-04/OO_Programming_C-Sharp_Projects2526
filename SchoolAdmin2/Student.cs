@@ -9,32 +9,57 @@ namespace SchoolAdmin2
         public string Name;
         public DateTime BirthDay;
         public uint StudentNumber;
-        private List<string> Courses = new List<string>();
+        private List<CourseResult> courseResults = new List<CourseResult>();
         public static uint StudentCounter = 1;
 
-        
-        public string GenerateNamecard()
-        {
-            return $"{this.Name}\t(STUDENT)";
-        }
         public byte DetermineWorkload()
         {
             byte total = 0;
-            foreach (string course in Courses)
+            foreach (CourseResult course in courseResults)
             {
-                total += 10;
+                if(course is not null)
+                {
+                    total += 10; total += 10;
+                }
             }
             return total;
         }
 
-        public void RegisterForCourse(string course)
+        public void RegisterCourseResult(string course, byte result)
         {
-            if (!Courses.Contains(course))
+            if(result > 20)
             {
-                Courses.Add(course);
+                Console.WriteLine("Ongeldig cijfer!");
             }
+            CourseResult courseResult = new CourseResult();
+            courseResult.Name = course;
+            courseResult.Result = result;
+
+            courseResults.Add(courseResult);  
         }
 
+        public double Average()
+        {
+            int total = 0;
+            
+            foreach (CourseResult result in courseResults)
+            {
+                total += result.Result;
+            }
+            return total / courseResults.Count;
+        }
+
+        public void ShowOverview()
+        {
+            Console.WriteLine($"\nNaam: {this.Name}\t(STUDENT)");
+            Console.WriteLine($"Werkbelasting: {this.DetermineWorkload()}");
+            Console.WriteLine($"\nCijferrapport:");
+            foreach (CourseResult item in courseResults)
+            {
+                Console.WriteLine($"{item.Name}:\t{item.Result}");
+            }
+
+        }
 
 
     }
