@@ -16,26 +16,24 @@ namespace SchoolAdmin2
             private set { creditPoints = value; }
         }
 
-
         private int id;
         public int Id
         {
             get { return id; }
         }
-
         private static int maxId = 1;
 
-        public static List<Course> allCourses = new List<Course>();
+
+        public static List<Course> AllCourses = new List<Course>();
 
         public Course(string title, List<Student> students, byte creditPoints)
         {
             this.Title = title;
             this.Students = students;
-            this.CreditPoints = creditPoints;
             this.id = Course.maxId;
             Course.maxId++;
-
-            Course.allCourses.Add(this);
+            this.CreditPoints = creditPoints;
+            Course.AllCourses.Add(this);
         }
 
         public Course(string title, List<Student> students) : this(title, students, 3)
@@ -54,6 +52,18 @@ namespace SchoolAdmin2
             {
                 Console.WriteLine($"\t- {student.Name}");
             }
+        }
+
+        public static Course SearchCourseById(int id)
+        {
+            foreach (Course item in AllCourses)
+            {
+                if(id == item.Id)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
     }

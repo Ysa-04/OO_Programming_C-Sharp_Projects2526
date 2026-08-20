@@ -4,26 +4,26 @@ using System.Text;
 
 namespace SchoolAdmin2
 {
-    internal class CourseResult
+    internal class CourseRegistration
     {
         private string name;
 
         public string Name
         {
-            get { return name; }
+            get { return this.name; }
             set { name = value; }
         }
 
-        private byte result;
+        private byte? result;
 
-        public byte Result
+        public byte? Result
         {
             get { return result; }
             set 
             { 
-                if(value > 20)
+                if(value is null || value > 20)
                 {
-                    Console.WriteLine("Foutief cijfer!");
+                    Console.WriteLine("Ongeldig cijfer!");
                 }
                 else
                 {
@@ -32,7 +32,7 @@ namespace SchoolAdmin2
             }
         }
 
-        public CourseResult(string name, byte result)
+        public CourseRegistration(string name, byte? result)
         {
             this.Name = name;
             this.Result = result;

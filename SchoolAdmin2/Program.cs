@@ -56,7 +56,7 @@
         {
             Student said = new Student("Said Aziz", new DateTime(2000, 6, 1));
             said.RegisterCourseResult("Programmeren", 15);
-            said.RegisterCourseResult("Webtechnologie", 13);
+            said.RegisterCourseResult("Webtechnologie", null);
             said.RegisterCourseResult("Communicatie", 12);
 
             Student mieke = new Student("Mieke Vermeulen", new DateTime(1998, 1, 1));

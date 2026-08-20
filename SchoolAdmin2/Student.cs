@@ -9,7 +9,7 @@ namespace SchoolAdmin2
         public string Name;
         public DateTime BirthDay;
         public uint StudentNumber;
-        private List<CourseResult> courseResults = new List<CourseResult>();
+        private List<CourseRegistration> courseRegistrations = new List<CourseRegistration>();
         public static uint StudentCounter = 1;
 
         public int Age
@@ -38,7 +38,7 @@ namespace SchoolAdmin2
         public byte DetermineWorkload()
         {
             byte total = 0;
-            foreach (CourseResult course in courseResults)
+            foreach (CourseRegistration course in courseRegistrations)
             {
                 if(course is not null)
                 {
@@ -48,25 +48,29 @@ namespace SchoolAdmin2
             return total;
         }
 
-        public void RegisterCourseResult(string course, byte result)
+        public void RegisterCourseResult(string course, byte? result)
         {
             if(result > 20)
             {
                 Console.WriteLine("Ongeldig cijfer!");
             }
-            CourseResult courseResult = new CourseResult(course,result);
-            courseResults.Add(courseResult);  
+            CourseRegistration courseResult = new CourseRegistration(course,result);
+            courseRegistrations.Add(courseResult);  
         }
 
         public double Average()
         {
             int total = 0;
             
-            foreach (CourseResult result in courseResults)
+            foreach (CourseRegistration item in courseRegistrations)
             {
-                total += result.Result;
+                if(item.Result is not null)
+                {
+                    total += (byte)item.Result;
+                }
+                
             }
-            return total / courseResults.Count;
+            return total / courseRegistrations.Count;
         }
 
         public void ShowOverview()
@@ -75,7 +79,7 @@ namespace SchoolAdmin2
             Console.WriteLine($"Leeftijd: {this.Age} jaar");
             Console.WriteLine($"Werkbelasting: {this.DetermineWorkload()} uren");
             Console.WriteLine($"\nCijferrapport:");
-            foreach (CourseResult item in courseResults)
+            foreach (CourseRegistration item in courseRegistrations)
             {
                 Console.WriteLine($"{item.Name}:\t{item.Result}");
             }
