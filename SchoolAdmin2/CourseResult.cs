@@ -14,9 +14,9 @@ namespace SchoolAdmin2
             set { name = value; }
         }
 
-        private int result;
+        private byte result;
 
-        public int Result
+        public byte Result
         {
             get { return result; }
             set 
@@ -30,6 +30,12 @@ namespace SchoolAdmin2
                     result = value;
                 }
             }
+        }
+
+        public CourseResult(string name, byte result)
+        {
+            this.Name = name;
+            this.Result = result;
         }
 
     }

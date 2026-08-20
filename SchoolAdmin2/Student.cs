@@ -31,7 +31,7 @@ namespace SchoolAdmin2
             this.Name = name;
             this.BirthDay = birthDay;
             StudentNumber = StudentCounter;
-            StudentCounter++;
+            Student.StudentCounter++;
         }
 
 
@@ -54,10 +54,7 @@ namespace SchoolAdmin2
             {
                 Console.WriteLine("Ongeldig cijfer!");
             }
-            CourseResult courseResult = new CourseResult();
-            courseResult.Name = course;
-            courseResult.Result = result;
-
+            CourseResult courseResult = new CourseResult(course,result);
             courseResults.Add(courseResult);  
         }
 

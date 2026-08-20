@@ -59,23 +59,17 @@
             mieke.RegisterCourseResult("Programmeren", 16);
             mieke.RegisterCourseResult("Databanken", 14);
 
-            Course programmeren = new Course();
-            programmeren.Title = "Programmeren";
-            programmeren.Students.Add(said);
-            programmeren.Students.Add(mieke);
+            List<Student> miekeAndSaid = new List<Student>();
+            miekeAndSaid.Add(mieke);
+            miekeAndSaid.Add(said);
 
-            Course databanken = new Course();
-            databanken.Title = "Databanken";
-            databanken.Students.Add(mieke);
+            Course communicatie = new Course("Communicatie", miekeAndSaid, 6);
+            Course programmeren = new Course("Programmeren", miekeAndSaid);
+            Course webtechnologie = new Course("Webtechnologie");
+            Course databanken = new Course("Databanken");
 
-            Course communicatie = new Course();
-            communicatie.Title = "Communicatie";
-            communicatie.Students.Add(said);
-            communicatie.Students.Add(mieke);
-
-            Course webtechnologie = new Course();
-            webtechnologie.Title = "Webtechnologie";
             webtechnologie.Students.Add(said);
+            databanken.Students.Add(mieke);
 
             programmeren.ShowOverview();
             databanken.ShowOverview();
