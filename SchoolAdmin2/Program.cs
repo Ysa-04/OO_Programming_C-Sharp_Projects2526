@@ -33,15 +33,15 @@
             said.BirthDay = new DateTime(2000, 6, 1);
             said.StudentNumber = Student.StudentCounter;
             Student.StudentCounter++;
-            //said.RegisterForCourse("Programmeren");
-            //said.RegisterForCourse("Databanken");
+            said.RegisterForCourse("Programmeren");
+            said.RegisterForCourse("Databanken");
 
             Student mieke = new Student();
             mieke.Name = "Mieke Vermeulen";
             mieke.BirthDay = new DateTime(1998, 1, 1);
             mieke.StudentNumber = Student.StudentCounter;
             Student.StudentCounter++;
-            //mieke.RegisterForCourse("Communicatie");
+            mieke.RegisterForCourse("Communicatie");
 
             Console.WriteLine(said.GenerateNamecard());
             Console.WriteLine(said.DetermineWorkload());

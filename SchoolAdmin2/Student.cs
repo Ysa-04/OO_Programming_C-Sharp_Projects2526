@@ -9,7 +9,7 @@ namespace SchoolAdmin2
         public string Name;
         public DateTime BirthDay;
         public uint StudentNumber;
-        public List<string> Courses = new List<string>();
+        private List<string> Courses = new List<string>();
         public static uint StudentCounter = 1;
 
         
@@ -25,6 +25,14 @@ namespace SchoolAdmin2
                 total += 10;
             }
             return total;
+        }
+
+        public void RegisterForCourse(string course)
+        {
+            if (!Courses.Contains(course))
+            {
+                Courses.Add(course);
+            }
         }
 
 
