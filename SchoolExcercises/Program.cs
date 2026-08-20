@@ -4,6 +4,7 @@ using Objecten;
 using Datastructuren;
 using Overerving;
 using ExceptionHandling;
+using SchoolAdmin2;
 using System.Runtime.ExceptionServices;
 
 namespace SchoolExcercises
@@ -48,6 +49,12 @@ namespace SchoolExcercises
                 Console.WriteLine("\t   4- Overerving");
                 Thread.Sleep(50);
                 Console.WriteLine("\t   5- Exception Handling");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   6- Polymorfisme");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   7- Testing");
+                Thread.Sleep(50);
+                Console.WriteLine("\t   8- School Admin");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string message = "Maak je keuze: ";
@@ -80,6 +87,10 @@ namespace SchoolExcercises
                     case 5:
                         Console.Clear();
                         ExceptionHandling.Program.Menu();
+                        break;
+                    case 8:
+                        Console.Clear();
+                        SchoolAdmin2.Program.SchoolAdminDemo();
                         break;
                     default:
                         Library.Messages.ErrorMessage("Invalid input value");

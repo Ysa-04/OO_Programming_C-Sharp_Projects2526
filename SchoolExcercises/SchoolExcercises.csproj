@@ -14,6 +14,7 @@
     <ProjectReference Include="..\Library\Library.csproj" />
     <ProjectReference Include="..\Objecten\Objecten.csproj" />
     <ProjectReference Include="..\Overerving\Overerving.csproj" />
+    <ProjectReference Include="..\SchoolAdmin2\SchoolAdmin2.csproj" />
   </ItemGroup>
 
 </Project>
