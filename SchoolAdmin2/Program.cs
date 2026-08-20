@@ -8,10 +8,11 @@
         }
         public static void SchoolAdminDemo()
         {
-            Console.WriteLine("Wat wil je doen?");
+            Console.WriteLine("Maak een keuze:");
             Console.WriteLine("1. DemonstreerStudenten uitvoeren");
             Console.WriteLine("2. DemonstreerCursussen uitvoeren");
             Console.WriteLine("3. Student uit csv inlezen");
+            Console.WriteLine("4. DemonstreerStudieProgramma uitvoeren");
             Console.WriteLine();
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
@@ -26,6 +27,10 @@
                 case 3:
                     Console.WriteLine();
                     ReadTextFormatStudent();
+                    break;
+                case 4:
+                    Console.WriteLine();
+                    StudyProgram.DemoStudyProgram();
                     break;
                 default:
                     break;
@@ -109,5 +114,6 @@
             newStudent.ShowOverview();
             // Bart Van Steen;04;03;1998;Boekhouden;14;Macro-economie;8;Frans, deel 2;18
          }
+
     }
 }
