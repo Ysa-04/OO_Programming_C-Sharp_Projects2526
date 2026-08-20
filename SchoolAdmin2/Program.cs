@@ -37,15 +37,20 @@
 
         public static void DemoStudents()
         {
+            Course programmeren = new Course("Programmeren");
+            Course databanken = new Course("Databanken");
+            Course communicaite = new Course("Communicatie");
+            Course webtechnologie = new Course("Webtechnologie");
+
             Student said = new Student("Said Aziz", new DateTime(2000, 6, 1));
-            said.RegisterCourseResult("Programmeren", 15);
-            said.RegisterCourseResult("Webtechnologie",13);
-            said.RegisterCourseResult("Communicatie",12);
+            said.RegisterCourseResult(programmeren, 15);
+            said.RegisterCourseResult(webtechnologie,null);
+            said.RegisterCourseResult(communicaite,12);
 
             Student mieke = new Student("Mieke Vermeulen", new DateTime(1998, 1, 1));
-            mieke.RegisterCourseResult("Communicatie",13);
-            mieke.RegisterCourseResult("Programmeren", 16);
-            mieke.RegisterCourseResult("Databanken",14);
+            mieke.RegisterCourseResult(communicaite,13);
+            mieke.RegisterCourseResult(programmeren, 16);
+            mieke.RegisterCourseResult(databanken,14);
 
             said.ShowOverview();
             mieke.ShowOverview(); 
@@ -55,31 +60,31 @@
         public static void DemoCourses()
         {
             Student said = new Student("Said Aziz", new DateTime(2000, 6, 1));
-            said.RegisterCourseResult("Programmeren", 15);
-            said.RegisterCourseResult("Webtechnologie", null);
-            said.RegisterCourseResult("Communicatie", 12);
-
             Student mieke = new Student("Mieke Vermeulen", new DateTime(1998, 1, 1));
-            mieke.RegisterCourseResult("Communicatie", 13);
-            mieke.RegisterCourseResult("Programmeren", 16);
-            mieke.RegisterCourseResult("Databanken", 14);
+            List<Student> saidAndMieke = new List<Student>();
+            saidAndMieke.Add(said);
+            saidAndMieke.Add(mieke);
 
-            List<Student> miekeAndSaid = new List<Student>();
-            miekeAndSaid.Add(mieke);
-            miekeAndSaid.Add(said);
-
-            Course communicatie = new Course("Communicatie", miekeAndSaid, 6);
-            Course programmeren = new Course("Programmeren", miekeAndSaid);
+            Course communicatie = new Course("Communicatie", saidAndMieke, 6);
+            Course programmeren = new Course("Programmeren", saidAndMieke);
             Course webtechnologie = new Course("Webtechnologie");
             Course databanken = new Course("Databanken");
 
             webtechnologie.Students.Add(said);
             databanken.Students.Add(mieke);
 
-            programmeren.ShowOverview();
-            databanken.ShowOverview();
+            said.RegisterCourseResult(communicatie, 12);
+            said.RegisterCourseResult(programmeren, null);
+            said.RegisterCourseResult(webtechnologie, 13);
+
+            mieke.RegisterCourseResult(communicatie, 13);
+            mieke.RegisterCourseResult(programmeren, 16);
+            mieke.RegisterCourseResult(databanken, 14);
+
             communicatie.ShowOverview();
+            programmeren.ShowOverview();
             webtechnologie.ShowOverview();
+            databanken.ShowOverview();
         }
 
         public static void ReadTextFormatStudent()
@@ -91,17 +96,18 @@
             int month = Convert.ToInt32(data[2]);
             int year = Convert.ToInt32(data[3]);
             Student newStudent = new Student(data[0], new DateTime(year, month, day));
-            for (int i = 4; i < data.Length; i+=2)
+            for (int i = 4; i < data.Length; i += 2)
             {
-                string course = data[i];
-                byte result = Convert.ToByte(data[i + 1]);
-                newStudent.RegisterCourseResult(course, result);
+                int subjectID = Convert.ToInt32(data[i]);
+                Course subject = Course.SearchCourseById(subjectID);
+                if (!(subject is null))
+                {
+                    byte result = Convert.ToByte(data[i + 1]);
+                    newStudent.RegisterCourseResult(subject, result);
+                }
             }
             newStudent.ShowOverview();
             // Bart Van Steen;04;03;1998;Boekhouden;14;Macro-economie;8;Frans, deel 2;18
-        }
-
-
-
+         }
     }
 }

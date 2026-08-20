@@ -48,7 +48,7 @@ namespace SchoolAdmin2
             return total;
         }
 
-        public void RegisterCourseResult(string course, byte? result)
+        public void RegisterCourseResult(Course course, byte? result)
         {
             if(result > 20)
             {
@@ -60,17 +60,17 @@ namespace SchoolAdmin2
 
         public double Average()
         {
-            int total = 0;
-            
+            double totaal = 0;
+            int counter = 0;
             foreach (CourseRegistration item in courseRegistrations)
             {
-                if(item.Result is not null)
+                if (!(item.Result is null))
                 {
-                    total += (byte)item.Result;
+                    totaal += (byte)item.Result;
+                    counter++;
                 }
-                
             }
-            return total / courseRegistrations.Count;
+            return totaal / counter;
         }
 
         public void ShowOverview()
@@ -81,8 +81,9 @@ namespace SchoolAdmin2
             Console.WriteLine($"\nCijferrapport:");
             foreach (CourseRegistration item in courseRegistrations)
             {
-                Console.WriteLine($"{item.Name}:\t{item.Result}");
+                Console.WriteLine($"{item.Course.Title}:\t{item.Result}");
             }
+            Console.WriteLine($"Gemiddelde:\t{this.Average():F1}");
 
         }
 
