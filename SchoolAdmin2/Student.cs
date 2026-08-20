@@ -12,6 +12,21 @@ namespace SchoolAdmin2
         private List<CourseResult> courseResults = new List<CourseResult>();
         public static uint StudentCounter = 1;
 
+        public int Age
+        {
+            get 
+            {
+                DateTime now = DateTime.Now;
+                int years = now.Year - this.BirthDay.Year;
+                if (now.Month < this.BirthDay.Month || now.Month == this.BirthDay.Month && now.Day < this.BirthDay.Day)
+                {
+                    years--;
+                }
+                return years; 
+            }
+        }
+
+
         public byte DetermineWorkload()
         {
             byte total = 0;
@@ -52,7 +67,8 @@ namespace SchoolAdmin2
         public void ShowOverview()
         {
             Console.WriteLine($"\nNaam: {this.Name}\t(STUDENT)");
-            Console.WriteLine($"Werkbelasting: {this.DetermineWorkload()}");
+            Console.WriteLine($"Leeftijd: {this.Age} jaar");
+            Console.WriteLine($"Werkbelasting: {this.DetermineWorkload()} uren");
             Console.WriteLine($"\nCijferrapport:");
             foreach (CourseResult item in courseResults)
             {
