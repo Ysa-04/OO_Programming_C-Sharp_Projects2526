@@ -26,6 +26,14 @@ namespace SchoolAdmin2
             }
         }
 
+        public Student(string name, DateTime birthDay)
+        {
+            this.Name = name;
+            this.BirthDay = birthDay;
+            StudentNumber = StudentCounter;
+            StudentCounter++;
+        }
+
 
         public byte DetermineWorkload()
         {
