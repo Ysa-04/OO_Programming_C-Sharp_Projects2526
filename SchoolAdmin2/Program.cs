@@ -51,7 +51,7 @@
             mieke.RegisterCourseResult("Databanken",14);
 
             said.ShowOverview();
-            mieke.ShowOverview();
+            mieke.ShowOverview(); 
         }
 
         
