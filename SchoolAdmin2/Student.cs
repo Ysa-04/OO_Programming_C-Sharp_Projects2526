@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace SchoolAdmin2
@@ -24,6 +26,11 @@ namespace SchoolAdmin2
                 }
                 return years; 
             }
+        }
+        private static List<Student> allStudents = new List<Student>();
+        public static ImmutableList<Student> AllStudents
+        {
+            get { return allStudents.ToImmutableList<Student>(); }
         }
 
         public Student(string name, DateTime birthDay)
