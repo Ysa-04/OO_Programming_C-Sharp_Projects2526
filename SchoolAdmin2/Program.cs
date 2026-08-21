@@ -13,6 +13,7 @@
             Console.WriteLine("2. DemonstreerCursussen uitvoeren");
             Console.WriteLine("3. Student uit csv inlezen");
             Console.WriteLine("4. DemonstreerStudieProgramma uitvoeren");
+            Console.WriteLine("5. DemonstreerAdministratiefPersoneel uitvoeren");
             Console.WriteLine();
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
@@ -31,6 +32,10 @@
                 case 4:
                     Console.WriteLine();
                     StudyProgram.DemoStudyProgram();
+                    break;
+                case 5:
+                    Console.WriteLine();
+                    DemoAdministrativePersonnel();
                     break;
                 default:
                     break;
@@ -115,5 +120,28 @@
             // Bart Van Steen;04;03;1998;Boekhouden;14;Macro-economie;8;Frans, deel 2;18
          }
 
+        public static void DemoAdministrativePersonnel()
+        {
+            var tasksAndre = new Dictionary<string, byte>();
+            tasksAndre.Add("roostering", 10);
+            tasksAndre.Add("correspondentie", 10);
+            tasksAndre.Add("animatie", 10);
+            AdministrativePersonnel andre = new AdministrativePersonnel("Andre Mosselmans", new DateTime(1988,02,4), tasksAndre);
+
+            var tasksMilena = new Dictionary<string, byte>();
+            tasksMilena.Add("roostering", 15);
+            tasksMilena.Add("animatie", 4);
+            tasksMilena.Add("mails", 11);
+            tasksMilena.Add("kloosterinschrijvingen", 5);
+            AdministrativePersonnel milena = new AdministrativePersonnel("Milena Van Looy", new DateTime(2005, 05, 11), tasksMilena);
+
+            foreach (AdministrativePersonnel lid in AdministrativePersonnel.AllAdministrativePersonnel)
+            {
+                Console.WriteLine($"\n{lid.GenerateNameCard()}");
+                Console.WriteLine($"Werkbelasting: {lid.DetermineWorkload()} uren");
+                Console.WriteLine($"Salaris: {lid.CalculateSalary():F2} EUR");
+            }
+           
+        }
     }
 }
