@@ -127,6 +127,7 @@
             tasksAndre.Add("correspondentie", 10);
             tasksAndre.Add("animatie", 10);
             AdministrativePersonnel andre = new AdministrativePersonnel("Andre Mosselmans", new DateTime(1988,02,4), tasksAndre);
+            andre.Seniority = 4;
 
             var tasksMilena = new Dictionary<string, byte>();
             tasksMilena.Add("roostering", 15);
@@ -134,6 +135,7 @@
             tasksMilena.Add("mails", 11);
             tasksMilena.Add("kloosterinschrijvingen", 5);
             AdministrativePersonnel milena = new AdministrativePersonnel("Milena Van Looy", new DateTime(2005, 05, 11), tasksMilena);
+            milena.Seniority = 6;
 
             foreach (AdministrativePersonnel lid in AdministrativePersonnel.AllAdministrativePersonnel)
             {
