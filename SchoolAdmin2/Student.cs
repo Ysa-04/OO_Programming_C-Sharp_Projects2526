@@ -6,43 +6,35 @@ using System.Text;
 
 namespace SchoolAdmin2
 {
-    internal class Student
+    internal class Student : Person
     {
-        public string Name;
-        public DateTime BirthDay;
-        public uint StudentNumber;
         private List<CourseRegistration> courseRegistrations = new List<CourseRegistration>();
-        public static uint StudentCounter = 1;
-
-        public int Age
-        {
-            get 
-            {
-                DateTime now = DateTime.Now;
-                int years = now.Year - this.BirthDay.Year;
-                if (now.Month < this.BirthDay.Month || now.Month == this.BirthDay.Month && now.Day < this.BirthDay.Day)
-                {
-                    years--;
-                }
-                return years; 
-            }
-        }
+     
         private static List<Student> allStudents = new List<Student>();
         public static ImmutableList<Student> AllStudents
         {
             get { return allStudents.ToImmutableList<Student>(); }
         }
 
-        public Student(string name, DateTime birthDay)
+        private Dictionary<DateTime, string> studentFile = new Dictionary<DateTime, string>();
+        public ImmutableDictionary<DateTime, string> StudentFile
         {
-            this.Name = name;
-            this.BirthDay = birthDay;
-            StudentNumber = StudentCounter;
-            Student.StudentCounter++;
+            get { return studentFile.ToImmutableDictionary<DateTime, string>(); }
+        }
+
+        public Student(string name, DateTime birthDay) :base(name, birthDay)
+        {
+            allStudents.Add(this);
+        }
+
+        public override string GenerateNameCard()
+        {
+            return $"{this.Name}\t(STUDENT)";
+            
         }
 
 
-        public byte DetermineWorkload()
+        public override double DetermineWorkload()
         {
             byte total = 0;
             foreach (CourseRegistration course in courseRegistrations)

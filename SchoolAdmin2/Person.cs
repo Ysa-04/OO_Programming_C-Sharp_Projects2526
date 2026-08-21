@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SchoolAdmin2
 {
-    internal class Person
+    internal abstract class Person
     {
         private uint id;
         public uint Id

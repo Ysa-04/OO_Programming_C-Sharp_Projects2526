@@ -62,16 +62,14 @@ namespace SchoolAdmin2
             Course communicatie = new Course("Communicatie");
             Course programmeren = new Course("Programmeren");
             Course databanken = new Course("Databanken");
-            //nieuwe cursus
             Course scripting = new Course("programmeren");
             List<Course> coursesProgrammeren = new List<Course>() { communicatie, programmeren, databanken };
-            //aanpassing met scripting
             List<Course> coursesSNB = new List<Course>() { communicatie, scripting, databanken };
             StudyProgram programmerenProgram = new StudyProgram("Programmeren");
             StudyProgram snbProgram = new StudyProgram("Systeem- en netwerkbeheer");
-            programmerenProgram.Courses = coursesProgrammeren;
-            snbProgram.Courses = coursesSNB;
-            snbProgram.Courses.Remove(databanken);
+            programmerenProgram.courses = coursesProgrammeren;
+            snbProgram.courses = coursesSNB;
+            snbProgram.courses.Remove(databanken); 
             snbProgram.Courses[1].Title = "Scripting";
             programmerenProgram.ShowOverview();
             snbProgram.ShowOverview();
