@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Text;
 
 namespace SchoolAdmin2
@@ -22,7 +23,11 @@ namespace SchoolAdmin2
             get { return id; }
         }
         private static int maxId = 1;
-        public static List<Course> AllCourses = new List<Course>();
+        private static List<Course> allCourses = new List<Course>();
+        public static ImmutableList<Course> AllCourses
+        {
+            get { return allCourses.ToImmutableList<Course>(); }
+        }
 
         public Course(string title, List<Student> students, byte creditPoints)
         {
