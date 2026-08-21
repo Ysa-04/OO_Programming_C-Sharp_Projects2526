@@ -1,4 +1,6 @@
-﻿namespace SchoolAdmin2
+﻿using System.Security.Cryptography;
+
+namespace SchoolAdmin2
 {
     public class Program
     {
@@ -14,6 +16,7 @@
             Console.WriteLine("3. Student uit csv inlezen");
             Console.WriteLine("4. DemonstreerStudieProgramma uitvoeren");
             Console.WriteLine("5. DemonstreerAdministratiefPersoneel uitvoeren");
+            Console.WriteLine("6. DemonstreerLectoren uitvoeren");
             Console.WriteLine();
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
@@ -36,6 +39,10 @@
                 case 5:
                     Console.WriteLine();
                     DemoAdministrativePersonnel();
+                    break;
+                case 6:
+                    Console.WriteLine();
+                    DemoLecurers();
                     break;
                 default:
                     break;
@@ -144,6 +151,41 @@
                 Console.WriteLine($"Salaris: {lid.CalculateSalary():F2} EUR");
             }
            
+        }
+
+        public static void DemoLecurers()
+        {
+            Course economie = new Course("Economie");
+            Course statistiek = new Course("Statistiek");
+            Course analytischeMeetkunde = new Course("Analytische meetkunde");
+            Course programmeren = new Course("Programmeren");
+            Course databanken = new Course("Databanken");
+            Course webtechnologie = new Course("Webtechnologie");
+
+            var tasksAnna = new Dictionary<string, byte>();
+            Lecturer anna = new Lecturer("Anna Bolzano", new DateTime(1975, 6, 12), tasksAnna);
+            anna.Courses.Add(economie, 3);
+            anna.Courses.Add(statistiek, 3);
+            anna.Courses.Add(analytischeMeetkunde, 4);
+            anna.Seniority = 9;
+
+            var tasksMarie = new Dictionary<string, byte>();
+            Lecturer marie = new Lecturer("Marie Vervoort", new DateTime(1995, 8, 11), tasksMarie);
+            marie.Courses.Add(programmeren, 10);
+            marie.Courses.Add(databanken, 12);
+            marie.Courses.Add(statistiek, 3);
+            marie.Courses.Add(analytischeMeetkunde, 3);
+            marie.Courses.Add(webtechnologie, 12);
+            marie.Seniority = 5;
+            ;
+            foreach (Lecturer lector in Lecturer.AllLecturers)
+            {
+                Console.WriteLine($"\n{lector.GenerateNameCard()}");
+                Console.WriteLine($"\nWerkbelasting: {lector.DetermineWorkload()} uren");
+                Console.WriteLine($"Salaris: {lector.CalculateSalary():F2} EUR");
+            }
+
+            
         }
     }
 }
