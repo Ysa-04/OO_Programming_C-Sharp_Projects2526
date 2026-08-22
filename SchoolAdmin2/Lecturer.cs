@@ -46,5 +46,9 @@ namespace SchoolAdmin2
             }
             return info;
         }
+        public override string ToString()
+        {
+            return base.ToString() + "\nLector";
+        }
     }
 }

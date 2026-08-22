@@ -72,6 +72,11 @@ namespace SchoolAdmin2
             return totaal / counter;
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + "\nStudent";
+        }
+
         public void ShowOverview()
         {
             Console.WriteLine($"\nNaam: {this.Name}\t(STUDENT)");

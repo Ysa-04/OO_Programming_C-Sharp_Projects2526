@@ -79,5 +79,14 @@ namespace SchoolAdmin2
         {
             return (int)this.Id;
         }
+        public override string ToString()
+        {
+            string text = "";
+            text += "Persoon\n";
+            text += "*********";
+            text += $"\nNaam: {this.Name}\n";
+            text += $"Leeftijd: {this.Age}\n";
+            return text;
+        }
     }
 }

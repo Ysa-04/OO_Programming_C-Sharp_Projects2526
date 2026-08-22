@@ -39,5 +39,9 @@ namespace SchoolAdmin2
         {
             return $"{this.Name} (ADMINISTRATIE)";
         }
+        public override string ToString()
+        {
+            return base.ToString() + "\nAdministratief Personeel";
+        }
     }
 }
