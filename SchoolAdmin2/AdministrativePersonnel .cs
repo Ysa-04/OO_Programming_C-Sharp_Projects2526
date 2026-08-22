@@ -7,10 +7,20 @@ namespace SchoolAdmin2
 {
     internal class AdministrativePersonnel : Employee
     {
-        private static List<AdministrativePersonnel> allAdministrativePersonnel = new List<AdministrativePersonnel>();
         public static ImmutableList<AdministrativePersonnel> AllAdministrativePersonnel
         {
-            get { return allAdministrativePersonnel.ToImmutableList<AdministrativePersonnel>(); }
+            get 
+            {
+                var builder = ImmutableList.CreateBuilder<AdministrativePersonnel>();
+                foreach (Person pers in AllPersons)
+                {
+                    if(pers is AdministrativePersonnel)
+                    {
+                        builder.Add((AdministrativePersonnel)pers);
+                    }
+                }
+                return builder.ToImmutableList<AdministrativePersonnel>(); 
+            }
         }
 
         public AdministrativePersonnel(string name, DateTime birthDay, Dictionary<string,byte>tasks) : base(name, birthDay, tasks)

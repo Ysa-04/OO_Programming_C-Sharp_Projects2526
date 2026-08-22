@@ -10,11 +10,22 @@ namespace SchoolAdmin2
     {
         private List<CourseRegistration> courseRegistrations = new List<CourseRegistration>();
      
-        private static List<Student> allStudents = new List<Student>();
         public static ImmutableList<Student> AllStudents
         {
-            get { return allStudents.ToImmutableList<Student>(); }
+            get 
+            {
+                var builder = ImmutableList.CreateBuilder<Student>();
+                foreach (Person pers in AllPersons)
+                {
+                    if(pers is Student)
+                    {
+                        builder.Add((Student)pers);
+                    }
+                }
+                return builder.ToImmutableList<Student>(); 
+            }
         }
+
 
         private Dictionary<DateTime, string> studentFile = new Dictionary<DateTime, string>();
         public ImmutableDictionary<DateTime, string> StudentFile

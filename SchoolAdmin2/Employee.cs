@@ -34,10 +34,20 @@ namespace SchoolAdmin2
 			}
 		}
 
-		private static List<Employee> allEmployees = new List<Employee>();
 		public static ImmutableList<Employee> AllEmployees
 		{
-			get { return allEmployees.ToImmutableList<Employee>(); }
+			get 
+			{
+				var builder = ImmutableList.CreateBuilder<Employee>();
+				foreach(Person pers in Person.AllPersons)
+				{
+					if(pers is Employee)
+					{
+						builder.Add((Employee)pers);
+					}
+				}
+				return builder.ToImmutableList<Employee>();
+			}
 		}
 
 		public Employee(string name, DateTime birthDay, Dictionary<string,byte> tasks) : base(name, birthDay)

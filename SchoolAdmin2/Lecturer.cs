@@ -8,10 +8,20 @@ namespace SchoolAdmin2
     internal class Lecturer : Employee
     {
         public Dictionary<Course, double> Courses = new Dictionary<Course, double>();
-        private static List<Lecturer> allLecturers = new List<Lecturer>();
         public static ImmutableList<Lecturer> AllLecturers
         {
-            get { return allLecturers.ToImmutableList<Lecturer>(); }
+            get 
+            {
+                var builder = ImmutableList.CreateBuilder<Lecturer>();
+                foreach (Person pers in Person.AllPersons)
+                {
+                    if(pers is Lecturer)
+                    {
+                        builder.Add((Lecturer)pers);
+                    }
+                }
+                return builder.ToImmutableList<Lecturer>(); 
+            }
         }
 
         public Lecturer(string name, DateTime birthDay, Dictionary<string,byte> tasks) : base(name, birthDay, tasks)
