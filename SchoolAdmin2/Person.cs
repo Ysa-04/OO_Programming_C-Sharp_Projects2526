@@ -60,5 +60,21 @@ namespace SchoolAdmin2
         public abstract double DetermineWorkload();
         public abstract string GenerateNameCard();
 
+        public override bool Equals(object obj)
+        {
+            if(obj is null)
+            {
+                return false;
+            }
+            else if(!(obj is Person))
+            {
+                return false;
+            }
+            else
+            {
+                return ((Person)obj).Id == this.Id;
+            }
+        }
+
     }
 }

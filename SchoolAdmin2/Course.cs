@@ -66,5 +66,20 @@ namespace SchoolAdmin2
             return null;
         }
 
+        public override bool Equals(object obj)
+        {
+            if(obj is null)
+            {
+                return false;
+            }
+            else if(!(obj is Course))
+            {
+                return false;
+            }
+            else
+            {
+                return ((Course)obj).Id == this.Id;
+            }
+        }
     }
 }
