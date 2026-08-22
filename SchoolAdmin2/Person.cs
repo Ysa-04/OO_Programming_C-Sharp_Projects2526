@@ -75,6 +75,9 @@ namespace SchoolAdmin2
                 return ((Person)obj).Id == this.Id;
             }
         }
-
+        public override int GetHashCode()
+        {
+            return (int)this.Id;
+        }
     }
 }

@@ -81,5 +81,10 @@ namespace SchoolAdmin2
                 return ((Course)obj).Id == this.Id;
             }
         }
+
+        public override int GetHashCode()
+        {
+            return (int)this.Id;
+        }
     }
 }
