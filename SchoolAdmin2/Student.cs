@@ -8,7 +8,34 @@ namespace SchoolAdmin2
 {
     internal class Student : Person
     {
-        private List<CourseRegistration> courseRegistrations = new List<CourseRegistration>();
+        public ImmutableList<CourseRegistration> CourseRegistrations
+        {
+            get
+            {
+                var builder = ImmutableList.CreateBuilder<CourseRegistration>();
+                foreach(var registration in CourseRegistration.AllCourseRegistrations)
+                {
+                    if(this == registration.Student)
+                    {
+                        builder.Add(registration);
+                    }
+                }
+                return builder.ToImmutable();
+            }
+        }
+
+        public ImmutableList<Course> Courses
+        {
+            get
+            {
+                var builder = ImmutableList.CreateBuilder<Course>();
+                foreach(var registration in this.CourseRegistrations)
+                {
+                    builder.Add(registration.Course);
+                }
+                return builder.ToImmutable();
+            }
+        }
      
         public static ImmutableList<Student> AllStudents
         {
@@ -22,7 +49,7 @@ namespace SchoolAdmin2
                         builder.Add((Student)pers);
                     }
                 }
-                return builder.ToImmutableList<Student>(); 
+                return builder.ToImmutable(); 
             }
         }
 
@@ -35,7 +62,7 @@ namespace SchoolAdmin2
 
         public Student(string name, DateTime birthDay) :base(name, birthDay)
         {
-            allStudents.Add(this);
+           
         }
 
         public override string GenerateNameCard()
@@ -48,7 +75,7 @@ namespace SchoolAdmin2
         public override double DetermineWorkload()
         {
             byte total = 0;
-            foreach (CourseRegistration course in courseRegistrations)
+            foreach (CourseRegistration course in CourseRegistrations)
             {
                 if(course is not null)
                 {
@@ -64,15 +91,18 @@ namespace SchoolAdmin2
             {
                 Console.WriteLine("Ongeldig cijfer!");
             }
-            CourseRegistration courseResult = new CourseRegistration(course,result);
-            courseRegistrations.Add(courseResult);  
+            else
+            {
+                new CourseRegistration(this, course, result);
+            }
+            
         }
 
         public double Average()
         {
             double totaal = 0;
             int counter = 0;
-            foreach (CourseRegistration item in courseRegistrations)
+            foreach (CourseRegistration item in CourseRegistrations)
             {
                 if (!(item.Result is null))
                 {
@@ -94,7 +124,7 @@ namespace SchoolAdmin2
             Console.WriteLine($"Leeftijd: {this.Age} jaar");
             Console.WriteLine($"Werkbelasting: {this.DetermineWorkload()} uren");
             Console.WriteLine($"\nCijferrapport:");
-            foreach (CourseRegistration item in courseRegistrations)
+            foreach (CourseRegistration item in CourseRegistrations)
             {
                 Console.WriteLine($"{item.Course.Title}:\t{item.Result}");
             }

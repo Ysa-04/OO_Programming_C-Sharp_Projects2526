@@ -8,7 +8,36 @@ namespace SchoolAdmin2
     internal class Course
     {
         public string Title;
-        public List<Student> Students = new List<Student>();
+        public ImmutableList<Student> Students
+        {
+            get
+            {
+                var builder = ImmutableList.CreateBuilder<Student>();
+                foreach(var registration in this.CourseRegistrations)
+                {
+                    builder.Add(registration.Student);
+                }
+                return builder.ToImmutable();
+            }
+        }
+
+        public ImmutableList<CourseRegistration> CourseRegistrations
+        {
+            get
+            {
+                var builder = ImmutableList.CreateBuilder<CourseRegistration>();
+                foreach(var registration in CourseRegistration.AllCourseRegistrations)
+                {
+                    if (registration.Course == this)
+                    {
+                        builder.Add(registration);
+                    }
+                }
+                return builder.ToImmutable();
+            }
+
+
+        }
 
         private byte creditPoints;
         public byte CreditPoints
@@ -29,21 +58,18 @@ namespace SchoolAdmin2
             get { return allCourses.ToImmutableList<Course>(); }
         }
 
-        public Course(string title, List<Student> students, byte creditPoints)
+        public Course(string title, byte creditPoints)
         {
             this.Title = title;
-            this.Students = students;
             this.id = Course.maxId;
             Course.maxId++;
             this.CreditPoints = creditPoints;
             Course.AllCourses.Add(this);
         }
-        public Course(string title, List<Student> students) : this(title, students, 3)
+        public Course(string title) : this(title, 3)
         {
         }
-        public Course(string title) : this(title, new List<Student>())
-        {
-        }
+
 
         public void ShowOverview()
         {

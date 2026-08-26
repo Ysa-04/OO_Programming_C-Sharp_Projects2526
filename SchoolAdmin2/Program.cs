@@ -78,17 +78,11 @@ namespace SchoolAdmin2
         {
             Student said = new Student("Said Aziz", new DateTime(2000, 6, 1));
             Student mieke = new Student("Mieke Vermeulen", new DateTime(1998, 1, 1));
-            List<Student> saidAndMieke = new List<Student>();
-            saidAndMieke.Add(said);
-            saidAndMieke.Add(mieke);
 
-            Course communicatie = new Course("Communicatie", saidAndMieke, 6);
-            Course programmeren = new Course("Programmeren", saidAndMieke);
+            Course communicatie = new Course("Communicatie", 6);
+            Course programmeren = new Course("Programmeren");
             Course webtechnologie = new Course("Webtechnologie");
             Course databanken = new Course("Databanken");
-
-            webtechnologie.Students.Add(said);
-            databanken.Students.Add(mieke);
 
             said.RegisterCourseResult(communicatie, 12);
             said.RegisterCourseResult(programmeren, null);

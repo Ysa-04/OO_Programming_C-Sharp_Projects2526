@@ -9,23 +9,22 @@ namespace SchoolAdmin2
     {
         public static ImmutableList<AdministrativePersonnel> AllAdministrativePersonnel
         {
-            get 
+            get
             {
                 var builder = ImmutableList.CreateBuilder<AdministrativePersonnel>();
-                foreach (Person pers in AllPersons)
+                foreach (Person pers in Person.AllPersons)
                 {
-                    if(pers is AdministrativePersonnel)
+                    if (pers is AdministrativePersonnel)
                     {
                         builder.Add((AdministrativePersonnel)pers);
                     }
                 }
-                return builder.ToImmutableList<AdministrativePersonnel>(); 
+
+                return builder.ToImmutableList<AdministrativePersonnel>();
             }
         }
-
-        public AdministrativePersonnel(string name, DateTime birthDay, Dictionary<string,byte>tasks) : base(name, birthDay, tasks)
+        public AdministrativePersonnel(string name, DateTime birthDate, Dictionary<string, byte> tasks) : base(name, birthDate, tasks)
         {
-            allAdministrativePersonnel.Add(this);
         }
 
         public override double DetermineWorkload()
