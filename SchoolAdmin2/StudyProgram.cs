@@ -14,10 +14,13 @@ namespace SchoolAdmin2
 			get { return name; }
 		}
 
-        private List<Course> courses = new List<Course>();
-		public ImmutableList<Course> Courses
+        private Dictionary<Course, byte> courses = new Dictionary<Course, byte>();
+        public ImmutableDictionary<Course,byte> Courses
         {
-            get { return courses.ToImmutableList<Course>(); }
+            get
+            {
+                return courses.ToImmutableDictionary<Course, byte>();
+            }
         }
 
 		public StudyProgram(string name)
@@ -28,9 +31,33 @@ namespace SchoolAdmin2
         public void ShowOverview()
         {
             Console.WriteLine($"Programma: {Name}\n");
-            foreach (Course course in Courses)
+            Console.WriteLine("Semester 1:");
+            bool noCourses = true;
+            foreach (var item in Courses)
             {
-                course.ShowOverview();
+                if(item.Value == 1)
+                {
+                    item.Key.ShowOverview();
+                    noCourses = false;
+                }
+            }
+            if (noCourses)
+            {
+                Console.WriteLine($"Er zijn geen cursussen in semester 1.");
+            }
+            Console.WriteLine("Semester 2:");
+            noCourses = true;
+            foreach(var item in Courses)
+            {
+                if(item.Value == 2)
+                {
+                    item.Key.ShowOverview();
+                    noCourses = false;
+                }
+            }
+            if (noCourses)
+            {
+                Console.WriteLine($"Er zijn geen cursussen in semester 2.");
             }
         }
         public static void DemoStudyProgram()
@@ -63,14 +90,30 @@ namespace SchoolAdmin2
             Course programmeren = new Course("Programmeren");
             Course databanken = new Course("Databanken");
             Course scripting = new Course("programmeren");
-            List<Course> coursesProgrammeren = new List<Course>() { communicatie, programmeren, databanken };
-            List<Course> coursesSNB = new List<Course>() { communicatie, scripting, databanken };
+
+            var coursesProgrammeren = new Dictionary<Course, byte>
+            {
+                {communicatie, 1},{programmeren,1},{databanken,1}
+            };
+            var coursesSNB = new Dictionary<Course, byte>
+            {
+                {communicatie,2 },{scripting,1},{databanken,1}
+            };
+
             StudyProgram programmerenProgram = new StudyProgram("Programmeren");
-            StudyProgram snbProgram = new StudyProgram("Systeem- en netwerkbeheer");
+            StudyProgram snbProgram = new StudyProgram("Systeem- en Netwerkbeheer");
+
             programmerenProgram.courses = coursesProgrammeren;
             snbProgram.courses = coursesSNB;
-            snbProgram.courses.Remove(databanken); 
-            snbProgram.Courses[1].Title = "Scripting";
+            snbProgram.courses.Remove(databanken);
+            foreach(var item in snbProgram.Courses)
+            {
+                if (item.Key.Title.ToLower() == "programmeren")
+                {
+                    item.Key.Title = "Scripting";
+                }
+            }
+
             programmerenProgram.ShowOverview();
             snbProgram.ShowOverview();
         }

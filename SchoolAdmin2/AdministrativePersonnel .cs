@@ -20,7 +20,7 @@ namespace SchoolAdmin2
                     }
                 }
 
-                return builder.ToImmutableList<AdministrativePersonnel>();
+                return builder.ToImmutable();
             }
         }
         public AdministrativePersonnel(string name, DateTime birthDate, Dictionary<string, byte> tasks) : base(name, birthDate, tasks)

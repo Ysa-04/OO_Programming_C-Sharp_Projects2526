@@ -20,13 +20,13 @@ namespace SchoolAdmin2
                         builder.Add((Lecturer)pers);
                     }
                 }
-                return builder.ToImmutableList<Lecturer>(); 
+                return builder.ToImmutable(); 
             }
         }
 
         public Lecturer(string name, DateTime birthDay, Dictionary<string,byte> tasks) : base(name, birthDay, tasks)
         {
-            allLecturers.Add(this);
+            
         }
 
         public override double DetermineWorkload()

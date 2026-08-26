@@ -46,7 +46,7 @@ namespace SchoolAdmin2
 						builder.Add((Employee)pers);
 					}
 				}
-				return builder.ToImmutableList<Employee>();
+				return builder.ToImmutable();
 			}
 		}
 
@@ -59,7 +59,7 @@ namespace SchoolAdmin2
 					this.tasks.Add(item.Key, item.Value);
 				}
 			}
-			allEmployees.Add(this);
+			
 		}
 
 		public abstract uint CalculateSalary();
