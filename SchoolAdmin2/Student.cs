@@ -118,6 +118,16 @@ namespace SchoolAdmin2
             return base.ToString() + "\nStudent";
         }
 
+        public static void AddStudent()
+        {
+            Console.Write("Naam van de student: ");
+            string name = Console.ReadLine();
+            Console.Write("Geboortedatum (yyyy/mm/dd): ");
+            DateTime birthDay = Convert.ToDateTime(Console.ReadLine());
+            new Student(name, birthDay);
+            Console.WriteLine("\nStudent succesvol aangemaakt.");
+        }
+
         public void ShowOverview()
         {
             Console.WriteLine($"\nNaam: {this.Name}\t(STUDENT)");
@@ -132,6 +142,7 @@ namespace SchoolAdmin2
 
         }
 
+        
 
     }
 }

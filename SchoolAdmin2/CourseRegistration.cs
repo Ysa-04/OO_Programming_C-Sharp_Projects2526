@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace SchoolAdmin2
@@ -49,5 +50,44 @@ namespace SchoolAdmin2
             allCourseRegistrations.Add(this);
         }
 
+        public static void AddCourseRegistration()
+        {
+            if(Student.AllStudents.Count < 1 || Course.AllCourses.Count < 1)
+            {
+                Console.WriteLine("Er moet minstens 1 student en minstens 1 cursus in het systeem zitten.");
+            }
+            else
+            {
+                Console.WriteLine("Welke student?");
+                for (int i = 0; i < Student.AllStudents.Count; i++)
+                {
+                    Console.WriteLine($"{i+1}. {Student.AllStudents[i].Name}");
+                }
+                Student student = Student.AllStudents[Convert.ToInt32(Console.ReadLine()) - 1];
+                Console.WriteLine("Welke cursus?");
+                for (int i = 0; i < Course.AllCourses.Count; i++)
+                {
+                    Console.WriteLine($"{i+1}. {Course.AllCourses[i].Title}");
+                }
+                Course course = Course.AllCourses[Convert.ToInt32(Console.ReadLine()) - 1];
+                byte? result = null;
+                Console.Write("Wil je een resultaat toekennen? (ja/nee): ");
+                string answer = Console.ReadLine();
+                if (answer.ToLower().Trim() == "ja")
+                {
+                    Console.Write("Geef het resultaat in: ");
+                    result = Convert.ToByte(Console.ReadLine());
+                }
+                new CourseRegistration(student, course, result);
+                Console.WriteLine("Vakinschrijving succesvol togevoegd.");
+            }
+        }
+        public static void ShowCourseRegistrations()
+        {
+            foreach (var item in CourseRegistration.AllCourseRegistrations)
+            {
+                Console.WriteLine($"{item.Student.Name} ingeschreven voor {item.Course.Title}");
+            }
+        }
     }
 }

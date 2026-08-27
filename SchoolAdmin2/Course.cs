@@ -70,6 +70,15 @@ namespace SchoolAdmin2
         {
         }
 
+        public static void AddCourse()
+        {
+            Console.Write("Titel van de cursus: ");
+            string title = Console.ReadLine();
+            Console.Write("Aantal studiepunten: ");
+            byte creditPoints = Convert.ToByte(Console.ReadLine());
+            new Course(title, creditPoints);
+            Console.WriteLine("\nCursus succesvol aangemaakt.");
+        }
 
         public void ShowOverview()
         {

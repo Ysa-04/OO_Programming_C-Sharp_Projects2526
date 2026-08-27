@@ -17,6 +17,10 @@ namespace SchoolAdmin2
             Console.WriteLine("4. DemonstreerStudieProgramma uitvoeren");
             Console.WriteLine("5. DemonstreerAdministratiefPersoneel uitvoeren");
             Console.WriteLine("6. DemonstreerLectoren uitvoeren");
+            Console.WriteLine("7. Student toevoegen");
+            Console.WriteLine("8. Cursus toevoegen");
+            Console.WriteLine("9. Vakinschrijving toevoegen");
+            Console.WriteLine("10. Demonstreer Vakinschrijvingen");
             Console.WriteLine();
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
@@ -43,6 +47,22 @@ namespace SchoolAdmin2
                 case 6:
                     Console.WriteLine();
                     DemoLecurers();
+                    break;
+                case 7:
+                    Console.WriteLine();
+                    Student.AddStudent();
+                    break;
+                case 8:
+                    Console.WriteLine();
+                    Course.AddCourse();
+                    break;
+                case 9:
+                    Console.WriteLine();
+                    CourseRegistration.AddCourseRegistration();
+                    break;
+                case 10:
+                    Console.WriteLine();
+                    CourseRegistration.ShowCourseRegistrations();
                     break;
                 default:
                     break;
