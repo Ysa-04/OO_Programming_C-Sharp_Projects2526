@@ -62,6 +62,24 @@ namespace SchoolAdmin2
             this.Course = course;
             this.Result = result;
             this.student = student;
+
+            int counter = 0;
+            foreach(CourseRegistration item in AllCourseRegistrations)
+            {
+                if(item.Course == course && item.Student == student)
+                {
+                    throw new ArgumentException("Een student kan niet meermaals voor dezelfde cursus ingeschreven worden");
+                }
+                else if(item.Course == course && item.Result is null)
+                {
+                    counter++;
+                }
+
+                if(counter >= 2 && result is null)
+                {
+                    throw new CapacityExceededException($"Er zijn al te veel studenten ingeschreven voor {Course.Title}.");
+                }
+            }
             allCourseRegistrations.Add(this);
         }
 
@@ -98,6 +116,10 @@ namespace SchoolAdmin2
                     new CourseRegistration(student, course, result);
                 }
                 catch (ArgumentException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                catch (CapacityExceededException e)
                 {
                     Console.WriteLine(e.Message);
                 }
