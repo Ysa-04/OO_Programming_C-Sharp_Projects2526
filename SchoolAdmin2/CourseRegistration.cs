@@ -12,7 +12,14 @@ namespace SchoolAdmin2
         public Course Course
         {
             get { return course; }
-            set { course = value; }
+            private set 
+            { 
+                if(value is null)
+                {
+                    throw new ArgumentException("Cursus mag niet ontbreken");
+                }
+                course = value; 
+            }
         }
         private byte? result;
         public byte? Result
@@ -40,6 +47,14 @@ namespace SchoolAdmin2
         public Student Student
         {
             get { return student; }
+            private set
+            {
+                if(value is null)
+                {
+                    throw new ArgumentException("Student mag niet ontbreken");
+                }
+                student = value;
+            }
         }
 
         public CourseRegistration(Student student, Course course, byte? result)
@@ -78,7 +93,14 @@ namespace SchoolAdmin2
                     Console.Write("Geef het resultaat in: ");
                     result = Convert.ToByte(Console.ReadLine());
                 }
-                new CourseRegistration(student, course, result);
+                try
+                {
+                    new CourseRegistration(student, course, result);
+                }
+                catch (ArgumentException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
                 Console.WriteLine("Vakinschrijving succesvol togevoegd.");
             }
         }
