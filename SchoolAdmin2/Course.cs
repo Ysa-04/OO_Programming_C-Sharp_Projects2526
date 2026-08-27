@@ -60,6 +60,13 @@ namespace SchoolAdmin2
 
         public Course(string title, byte creditPoints)
         {
+            foreach (Course course in Course.AllCourses)
+            {
+                if(title == course.Title)
+                {
+                    throw new DuplicateDataException("Nieuwe cursus heeft dezelfde naam als een reeds bestaande cursus", this, course);
+                }
+            }
             this.Title = title;
             this.id = Course.maxId;
             Course.maxId++;
@@ -76,7 +83,16 @@ namespace SchoolAdmin2
             string title = Console.ReadLine();
             Console.Write("Aantal studiepunten: ");
             byte creditPoints = Convert.ToByte(Console.ReadLine());
-            new Course(title, creditPoints);
+            try
+            {
+                new Course(title, creditPoints);
+            }
+            catch (DuplicateDataException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine($"Id van de reeds bestaande cursus is: {((Course)e.Object2).Id}");
+            }
+            
             Console.WriteLine("\nCursus succesvol aangemaakt.");
         }
 
